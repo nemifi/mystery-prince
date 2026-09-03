@@ -1,30 +1,48 @@
 # Mystery Prince
 
-> Character-first mystery entertainment IP + AI-assisted mystery game production system.
+> A platform for continuously delivering and evolving interactive mystery experiences centered on attractive male characters.
 
 This repository is the design source of truth for **MYSTERY PRINCE / ミステリープリンス**.
 
-The project is not defined as one fixed story or one fixed fictional universe. It is a long-running IP and product framework in which attractive male characters (“Princes”) can appear in many independent mystery works and roles, while the production system uses AI to help create a large supply of high-quality ~30-minute mystery games.
+MYSTERY PRINCE is intentionally defined more broadly than its first implementation. It is not one fixed story, one fixed fictional universe, one fixed UI, or one fixed game format. The long-term platform should be able to absorb new interaction models and new AI capabilities without redefining the IP.
 
-## Current core thesis
+## Current platform thesis
 
-- **Prince is a brand label, not an in-world status.** A Prince does not need to be royalty and is not bound to one setting.
-- **Character continuity lives in identity/personality, not biography.** A recurring Prince may play different roles, professions, eras, relationships, moral positions, or even culprit/suspect/investigator across independent works.
-- **Each mystery should work as a complete work first.** We do not assemble stories mechanically from UI parts and call the result a mystery.
-- **AI is initially an authoring/production tool, not a runtime dependency.** Mysteries are generated and refined before release; the user plays a packaged game without requiring per-play LLM API calls.
-- **Game content is data; presentation is replaceable.** Mystery meaning/logic should not depend on today’s UI so the interface can evolve later without discarding the content library.
-- **High-quality reusable assets are pre-produced.** Characters, backgrounds, props, evidence, music, effects, etc. are combined with generated story/game data.
-- **The long-term technical asset may be an AI-assisted mystery game creation system; MYSTERY PRINCE is the first character-IP product built on top of it.**
+The stable conceptual core is intentionally small:
 
-## Working product shape
+- **PRINCE** — who is at the center of the attraction
+- **MYSTERY** — what the user wants to know, solve, expose, or understand
+- **EXPERIENCE** — how the user participates in that mystery
 
-- Mobile app
-- One play session: roughly **30 minutes**
-- Independent, self-contained mysteries
-- Multiple attractive male characters per work
-- Strong mystery quality and character appeal must coexist
-- Initially: AI-assisted creation at production time
-- Later: runtime generation may be explored if economics, latency, quality and safety make sense
+Current principles:
+
+- **MYSTERY PRINCE is a platform, not a fixed game format.**
+- **Prince is a broad brand label, not an in-world status.** A Prince does not need to be royalty and should not be over-defined.
+- **PRINCE and ROLE are separate.** A recurring Prince may play different professions, eras, relationships, moral positions, or culprit/suspect/investigator roles across independent experiences.
+- **Story continuity is optional, not a platform invariant.** The platform must not require one persistent fictional biography or universe.
+- **Each mystery should work as a complete entertainment work first.** We do not mechanically assemble UI parts and call the result a mystery.
+- **AI is initially an authoring/production tool, not a runtime dependency.** This may evolve later as economics, latency, quality, and capability improve.
+- **Content meaning is independent of presentation UI.** Creation and Runtime are separated by an evolving Experience Contract.
+- **Future extensibility should be preserved structurally, not by prematurely implementing speculative features.**
+
+The desired posture is:
+
+> **Broad platform definition, narrow initial implementation.**
+
+## Working initial implementation
+
+The first implementation may still be intentionally concrete, for example:
+
+- Mobile-first
+- Pre-authored / AI-assisted production-time content
+- Independent, self-contained mystery experiences
+- Multiple attractive male characters per experience
+- Roughly 30-minute sessions as an initial working target
+- Reusable high-quality character, background, evidence, sound, and presentation assets
+
+These are **working implementation choices**, not permanent definitions of MYSTERY PRINCE.
+
+Future EXPERIENCE types may include voice interaction, real-time AI characters, 3D investigation, multiplayer mystery, XR, or formats that do not yet exist.
 
 ## Working brand persona
 
@@ -32,18 +50,37 @@ The project is not defined as one fixed story or one fixed fictional universe. I
 
 This is intentionally not yet treated as immutable naming.
 
+## Architecture direction
+
+The platform is currently separated conceptually into five layers:
+
+1. **Brand** — MYSTERY PRINCE, PRINCE, CROWN MASTER ZERO, brand principles
+2. **Content** — EXPERIENCE, MYSTERY, STORY, WORLD, ROLE, CAST
+3. **Platform** — catalog, accounts, distribution, purchases, discovery, versioning
+4. **Runtime** — current and future ways to play/present an EXPERIENCE
+5. **Creation** — human/AI production, asset libraries, validation, authoring tools
+
+Creation should output a stable **EXPERIENCE CONTRACT**. Runtime should interpret that contract without forcing current UI assumptions into the long-term content model.
+
 ## Documents
 
-1. [Vision and principles](docs/00-vision-and-principles.md)
-2. [IP and brand model](docs/01-ip-and-brand-model.md)
-3. [Prince / character model](docs/02-prince-character-model.md)
-4. [Product and game model](docs/03-product-and-game-model.md)
-5. [AI-assisted content production](docs/04-ai-content-production.md)
-6. [Runtime and architecture direction](docs/05-runtime-and-architecture.md)
-7. [Mystery data / semantic model](docs/06-mystery-data-model.md)
-8. [Quality bar and risks](docs/07-quality-bar-and-risks.md)
-9. [Open questions](docs/08-open-questions.md)
-10. [Architecture decisions](docs/adr/README.md)
+Start with the design index: [docs/README.md](docs/README.md)
+
+Key documents:
+
+1. [Current product thesis](docs/10-current-product-thesis.md)
+2. [Platform core & Experience Contract](docs/09-platform-core-and-experience-contract.md)
+3. [Vision and principles](docs/00-vision-and-principles.md)
+4. [IP and brand model](docs/01-ip-and-brand-model.md)
+5. [Prince / character model](docs/02-prince-character-model.md)
+6. [Product and game model](docs/03-product-and-game-model.md)
+7. [AI-assisted content production](docs/04-ai-content-production.md)
+8. [Runtime and architecture direction](docs/05-runtime-and-architecture.md)
+9. [Mystery data / semantic model](docs/06-mystery-data-model.md)
+10. [Quality bar and risks](docs/07-quality-bar-and-risks.md)
+11. [Open questions](docs/08-open-questions.md)
+12. [Root design checklist](docs/11-root-design-checklist.md)
+13. [Architecture decisions](docs/adr/README.md)
 
 ## Status vocabulary
 
@@ -51,13 +88,8 @@ This is intentionally not yet treated as immutable naming.
 - **WORKING** — current best direction, still expected to evolve.
 - **OPEN** — intentionally unresolved.
 
-## Near-term objective
+## Current design objective
 
-Build the minimum production architecture that can prove this loop:
+Before committing to detailed MVP UI or production architecture, continue clarifying the platform's root contracts and invariants.
 
-1. Define a strong complete mystery work.
-2. Use AI to assist its design and production.
-3. Map it into a reusable game representation.
-4. Package it with prebuilt high-quality assets.
-5. Play a polished ~30-minute mobile mystery.
-6. Add another mystery without custom engineering for that specific work.
+The initial product should remain small, but its architecture should avoid accidentally defining today's UI, AI technology, session length, or story format as permanent characteristics of MYSTERY PRINCE.
