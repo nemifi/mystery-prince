@@ -60,19 +60,32 @@ The platform is currently separated conceptually into five layers:
 4. **Runtime** — current and future ways to play/present an EXPERIENCE
 5. **Creation** — human/AI production, asset libraries, validation, authoring tools
 
-Creation should output a stable **EXPERIENCE CONTRACT**. Runtime should interpret that contract without forcing current UI assumptions into the long-term content model.
+Creation outputs an **EXPERIENCE CONTRACT**. Runtime interprets that contract without forcing current UI assumptions into the long-term content model.
 
-A useful implementation mental model is becoming:
+The implementation mental model is:
 
 > **Whole Work Design → Experience Semantic Model → Validation → Realization Compilation → Runtime Playback**
 
 AI models are replaceable tools around this pipeline rather than the identity of the platform.
 
+## Current architecture proof
+
+The first contract proof now exists in the repository:
+
+- Experience Contract JSON Schema v0.1
+- three prototype PRINCE Cores
+- two deliberately different MASTER WORKS using the same recurring PRINCES
+- two machine-readable Experience Contract fixtures
+- Runtime v1 defined as a contract test harness rather than final product UI
+- phased build sequence from static validation to user concept testing
+
+The two prototype works deliberately reverse ROLE and moral position across the same PRINCES to stress-test the star-system hypothesis rather than preserve identity through biography.
+
 ## Documents
 
 Start with the design index: [docs/README.md](docs/README.md)
 
-Key documents:
+Key current documents:
 
 1. [Current product thesis](docs/10-current-product-thesis.md)
 2. [Platform core & Experience Contract](docs/09-platform-core-and-experience-contract.md)
@@ -81,17 +94,19 @@ Key documents:
 5. [Authoring → Compiler → Runtime model](docs/14-authoring-compiler-runtime-model.md)
 6. [PRINCE CORE minimum](docs/15-prince-core-minimum.md)
 7. [MVP boundary and validation plan](docs/16-mvp-and-validation-plan.md)
-8. [Vision and principles](docs/00-vision-and-principles.md)
-9. [IP and brand model](docs/01-ip-and-brand-model.md)
-10. [Prince / character model](docs/02-prince-character-model.md)
-11. [Product and game model](docs/03-product-and-game-model.md)
-12. [AI-assisted content production](docs/04-ai-content-production.md)
-13. [Runtime and architecture direction](docs/05-runtime-and-architecture.md)
-14. [Mystery data / semantic model](docs/06-mystery-data-model.md)
-15. [Quality bar and risks](docs/07-quality-bar-and-risks.md)
-16. [Open questions](docs/08-open-questions.md)
-17. [Root design checklist](docs/11-root-design-checklist.md)
-18. [Architecture decisions](docs/adr/README.md)
+8. [Experience Contract Schema v0](docs/17-experience-contract-schema-v0.md)
+9. [Prototype PRINCE Cores](docs/18-concept-prototype-princes.md)
+10. [MASTER WORK A](docs/19-master-work-a.md)
+11. [MASTER WORK B](docs/20-master-work-b.md)
+12. [Runtime v1 contract harness](docs/21-runtime-v1-contract-test-harness.md)
+13. [Build sequence](docs/22-build-sequence.md)
+14. [Architecture decisions](docs/adr/README.md)
+
+Machine-readable files:
+
+- [Experience Contract v0.1 JSON Schema](schemas/experience-contract-v0.1.schema.json)
+- [Prototype EXPERIENCE A](examples/experiences/the-2330-message.v0.1.json)
+- [Prototype EXPERIENCE B](examples/experiences/the-sealed-express.v0.1.json)
 
 ## Status vocabulary
 
@@ -99,8 +114,12 @@ Key documents:
 - **WORKING** — current best direction, still expected to evolve.
 - **OPEN** — intentionally unresolved.
 
-## Current design objective
+## Immediate objective
 
-The root platform model is now sufficiently small to begin designing a first proof without treating the proof's UI or technology as permanent platform identity.
+The next engineering proof is intentionally narrow:
 
-The next architectural milestone is to define a minimal schema/contract v0, then prove that two meaningfully different mystery works using recurring PRINCES can be authored as whole works, normalized into that contract, and realized by one simple Runtime v1 without custom engineering per work.
+1. statically validate both contract fixtures;
+2. compile both into one Runtime-v1 realization format;
+3. execute both through the same contract harness without work-specific application code;
+4. polish the H1/H2-critical paths into target-user concept prototypes;
+5. validate the star-system and character × mystery hypotheses before designing the final commercial game UI.
