@@ -21,3 +21,4 @@ jobs:
       - run: python tools/runtime_v1.py --auto build/realizations/*.json
       - run: python tools/validate_prototype.py
       - run: node --check prototype/app.js
+      - run: node --check prototype/test-tools.js
