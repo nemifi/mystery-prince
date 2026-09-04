@@ -28,3 +28,42 @@ jobs:
       - run: node --check prototype/blind-sanitizer.js
       - run: node --check prototype/app.js
       - run: node --check prototype/test-tools.js
+      - run: node --check tools/smoke_wave1_browser.mjs
+
+  browser-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start static prototype server
+        run: |
+          python -m http.server 8000 --bind 127.0.0.1 > /tmp/mp-http.log 2>&1 &
+          echo $! > /tmp/mp-http.pid
+          python - <<'PY'
+          import time, urllib.request
+          url = 'http://127.0.0.1:8000/prototype/'
+          for _ in range(30):
+              try:
+                  with urllib.request.urlopen(url, timeout=1) as r:
+                      if r.status == 200:
+                          print('prototype server ready')
+                          break
+              except Exception:
+                  time.sleep(0.2)
+          else:
+              raise SystemExit('prototype server did not start')
+          PY
+      - name: Run AB and BA browser smoke tests
+        run: node tools/smoke_wave1_browser.mjs
+      - name: Show server log on failure
+        if: failure()
+        run: cat /tmp/mp-http.log || true
