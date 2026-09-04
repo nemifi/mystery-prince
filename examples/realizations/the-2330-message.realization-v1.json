@@ -1,0 +1,36 @@
+{
+  "realization_version": "1",
+  "id": "realization_proto_001_v1",
+  "source_experience_id": "exp_proto_001",
+  "title": "THE 23:30 MESSAGE",
+  "premise": "A man is found dead on a restricted luxury-hotel floor, yet a message in his own voice is delivered at 23:30 after he should already be dead.",
+  "cast": [
+    {"casting_id": "cast_a_alpha", "prince_id": "prince_alpha", "role_label": "Hotel security director"},
+    {"casting_id": "cast_a_beta", "prince_id": "prince_beta", "role_label": "Victim's private physician"},
+    {"casting_id": "cast_a_gamma", "prince_id": "prince_gamma", "role_label": "Invited illusionist"}
+  ],
+  "facts": [
+    {"id": "f_a_01", "text": "The victim was already dead before 23:30."},
+    {"id": "f_a_02", "text": "A message in the victim's voice was delivered at exactly 23:30."},
+    {"id": "f_a_03", "text": "The 23:30 message had been recorded and scheduled earlier."},
+    {"id": "f_a_04", "text": "BETA's claim that he saw the victim alive shortly before 23:30 is false."},
+    {"id": "f_a_05", "text": "ALPHA altered one security record."},
+    {"id": "f_a_06", "text": "GAMMA possessed an unauthorized access credential."},
+    {"id": "f_a_07", "text": "BETA knows a room-state detail inconsistent with his claimed timeline."},
+    {"id": "f_a_08", "text": "BETA caused the victim's death."},
+    {"id": "f_a_09", "text": "The hotel communication system supports scheduled delivery."}
+  ],
+  "initial_known_fact_ids": ["f_a_02"],
+  "actions": [
+    {"id": "op_a_01", "capability": "inspect_information", "label": "Check whether the 23:30 message could have been scheduled.", "targets": ["hotel_communication_system"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_09", "f_a_03"]},
+    {"id": "op_a_02", "capability": "inspect_information", "label": "Examine the death window.", "targets": ["death_window"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_01"]},
+    {"id": "op_a_03", "capability": "question_character", "label": "Question ALPHA about the access records.", "targets": ["cast_a_alpha"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_05"]},
+    {"id": "op_a_04", "capability": "question_character", "label": "Question GAMMA about restricted access.", "targets": ["cast_a_gamma"], "requires_fact_ids": ["f_a_05"], "reveals_fact_ids": ["f_a_06"]},
+    {"id": "op_a_05", "capability": "question_character", "label": "Revisit BETA's account of the room.", "targets": ["cast_a_beta"], "requires_fact_ids": ["f_a_03"], "reveals_fact_ids": ["f_a_07"]},
+    {"id": "op_a_06", "capability": "challenge_claim", "label": "Challenge BETA's claimed last-seen time.", "targets": ["cast_a_beta"], "requires_fact_ids": ["f_a_01", "f_a_03", "f_a_07"], "reveals_fact_ids": ["f_a_04"]},
+    {"id": "op_a_07", "capability": "make_decision", "label": "Who caused the victim's death?", "targets": ["cast_a_alpha", "cast_a_beta", "cast_a_gamma"], "success_target_ids": ["cast_a_beta"], "requires_fact_ids": ["f_a_01", "f_a_03", "f_a_04", "f_a_07"], "reveals_fact_ids": ["f_a_08"]}
+  ],
+  "completion_conditions": [
+    {"id": "complete_a_01", "description": "Resolve the false 23:30 time boundary and correctly accuse BETA.", "required_fact_ids": ["f_a_03", "f_a_04", "f_a_08"], "required_action_ids": ["op_a_07"]}
+  ]
+}
