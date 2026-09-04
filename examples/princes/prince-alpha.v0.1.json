@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1",
+  "id": "prince_alpha",
+  "working_name": "PRINCE ALPHA",
+  "core": {
+    "appeal_core": "Composure, competence, and the feeling that he sees one layer deeper than everyone else.",
+    "decision_principle": "When uncertainty rises, reduce ambiguity first; prefer a hard truth and actionable structure over comforting uncertainty.",
+    "interpersonal_style": "Sets the agenda quietly, asks precise questions, reveals little until useful, and protects others more often through decisions than reassurance.",
+    "emotional_pattern": "Normally controlled; strongest visible reaction occurs when another person takes a risk or sacrifice for him that he did not authorize.",
+    "signature": [
+      "short declarative phrasing",
+      "deliberate pauses before irreversible decisions",
+      "a small self-ordering gesture before giving a difficult answer"
+    ]
+  },
+  "prototype_notes": [
+    "Do not fix police/detective status, goodness, authority, age, family, era, innocence, or culprit status."
+  ]
+}
