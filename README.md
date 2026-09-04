@@ -52,7 +52,7 @@ This is intentionally not yet treated as immutable naming.
 
 ## Architecture direction
 
-The platform is currently separated conceptually into five layers:
+The platform is conceptually separated into five layers:
 
 1. **Brand** — MYSTERY PRINCE, PRINCE, CROWN MASTER ZERO, brand principles
 2. **Content** — EXPERIENCE, MYSTERY, STORY, WORLD, ROLE, CAST
@@ -68,45 +68,58 @@ The implementation mental model is:
 
 AI models are replaceable tools around this pipeline rather than the identity of the platform.
 
-## Current architecture proof
+## Architecture proof: passing
 
-The first contract proof now exists in the repository:
+The first end-to-end architecture proof now exists and is exercised by CI:
 
 - Experience Contract JSON Schema v0.1
+- PRINCE CORE JSON Schema v0.1
 - three prototype PRINCE Cores
 - two deliberately different MASTER WORKS using the same recurring PRINCES
 - two machine-readable Experience Contract fixtures
-- Runtime v1 defined as a contract test harness rather than final product UI
-- phased build sequence from static validation to user concept testing
+- static semantic/reference/reachability validation
+- deterministic Experience → Realization-v1 compiler
+- disposable Runtime-v1 contract harness
+- automatic completion of both generated Realizations through the same runtime code path
 
-The two prototype works deliberately reverse ROLE and moral position across the same PRINCES to stress-test the star-system hypothesis rather than preserve identity through biography.
+The fixture work also already forced one useful schema correction: completion must represent an explicit successful player decision rather than treating discovery of truth as equivalent to acting on it.
+
+This is the intended development pattern: concrete works stress the abstraction, and the abstraction evolves only when real works expose a need.
+
+## What this does not prove
+
+The current Runtime is intentionally not the commercial MYSTERY PRINCE game UI.
+
+The remaining highest-risk questions are product questions:
+
+- Does a recurring PRINCE remain attractive and recognizable across radically different ROLEs and biographies?
+- Does character attachment make the mystery stronger rather than distracting from it?
+- Does the user want to see the same PRINCES cast again in new works?
+
+Until those are tested, final interaction design, retention systems, monetization architecture, and large-scale AI content production remain secondary.
 
 ## Documents
 
 Start with the design index: [docs/README.md](docs/README.md)
 
-Key current documents:
+Current prototype path:
 
 1. [Current product thesis](docs/10-current-product-thesis.md)
 2. [Platform core & Experience Contract](docs/09-platform-core-and-experience-contract.md)
-3. [Durable domain model](docs/12-domain-model.md)
-4. [Experience Core and contract boundary](docs/13-experience-core-and-contract.md)
-5. [Authoring → Compiler → Runtime model](docs/14-authoring-compiler-runtime-model.md)
+3. [Domain model](docs/12-domain-model.md)
+4. [Experience Core](docs/13-experience-core-and-contract.md)
+5. [Authoring → Compiler → Runtime](docs/14-authoring-compiler-runtime-model.md)
 6. [PRINCE CORE minimum](docs/15-prince-core-minimum.md)
-7. [MVP boundary and validation plan](docs/16-mvp-and-validation-plan.md)
+7. [MVP / validation plan](docs/16-mvp-and-validation-plan.md)
 8. [Experience Contract Schema v0](docs/17-experience-contract-schema-v0.md)
-9. [Prototype PRINCE Cores](docs/18-concept-prototype-princes.md)
+9. [Prototype PRINCES](docs/18-concept-prototype-princes.md)
 10. [MASTER WORK A](docs/19-master-work-a.md)
 11. [MASTER WORK B](docs/20-master-work-b.md)
 12. [Runtime v1 contract harness](docs/21-runtime-v1-contract-test-harness.md)
 13. [Build sequence](docs/22-build-sequence.md)
-14. [Architecture decisions](docs/adr/README.md)
-
-Machine-readable files:
-
-- [Experience Contract v0.1 JSON Schema](schemas/experience-contract-v0.1.schema.json)
-- [Prototype EXPERIENCE A](examples/experiences/the-2330-message.v0.1.json)
-- [Prototype EXPERIENCE B](examples/experiences/the-sealed-express.v0.1.json)
+14. [Realization v1](docs/23-realization-v1-format.md)
+15. [Concept-test protocol](docs/24-concept-test-protocol.md)
+16. [Architecture decisions](docs/adr/README.md)
 
 ## Status vocabulary
 
@@ -116,10 +129,4 @@ Machine-readable files:
 
 ## Immediate objective
 
-The next engineering proof is intentionally narrow:
-
-1. statically validate both contract fixtures;
-2. compile both into one Runtime-v1 realization format;
-3. execute both through the same contract harness without work-specific application code;
-4. polish the H1/H2-critical paths into target-user concept prototypes;
-5. validate the star-system and character × mystery hypotheses before designing the final commercial game UI.
+The architecture proof has passed. The immediate next milestone is **H1/H2 creative validation**: make the two prototype slices polished enough for target users to judge the star-system and character × mystery experience rather than the roughness of the prototype.
