@@ -23,6 +23,8 @@ jobs:
       - run: python tools/validate_blind_concept_build.py
       - run: python tools/prototype_metrics.py
       - run: python tools/analyze_concept_tests.py --self-test
+      - run: python tools/generate_wave1_links.py --self-test
+      - run: node --check prototype/storage-scope.js
       - run: node --check prototype/blind-sanitizer.js
       - run: node --check prototype/app.js
       - run: node --check prototype/test-tools.js
