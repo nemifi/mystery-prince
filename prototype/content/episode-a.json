@@ -1,0 +1,34 @@
+{
+  "id": "concept_episode_a",
+  "title": "THE 23:30 MESSAGE",
+  "scene": "hotel",
+  "premise": "高級ホテルの立入制限フロアで男性が死亡した。だが死亡後のはずの23:30、彼自身の声によるメッセージが届く。",
+  "cast": [
+    {"id":"rei","name":"REI","role":"ホテル警備責任者","portraitClass":"rei"},
+    {"id":"minato","name":"MINATO","role":"被害者の主治医","portraitClass":"minato"},
+    {"id":"kai","name":"KAI","role":"招待イリュージョニスト","portraitClass":"kai"}
+  ],
+  "events": [
+    {"id":"a00","type":"open","eyebrow":"EPISODE 01","cta":"23:30の謎を追う"},
+    {"id":"a01","type":"narration","eyebrow":"23:32 / RESTRICTED FLOOR","title":"死者から届いた声","text":"被害者はすでに冷たかった。それでも二分前、23:30ちょうどに『話したいことがある』という音声メッセージが全員へ届いている。","addEvidence":[{"id":"msg2330","label":"23:30の音声メッセージ","text":"被害者本人の声。配信時刻は23:30。録音時刻は表示されていない。"}]},
+    {"id":"a02","type":"dialogue","character":"rei","text":"……まず、事実を確認しよう。23:30という数字に意味があるとは、まだ限らない。","addEvidence":[{"id":"death","label":"死亡推定","text":"医師の初見では、23:30より前に死亡していた可能性が高い。"}]},
+    {"id":"a03","type":"dialogue","character":"minato","text":"大丈夫。焦らなくていい。君が見たことを一つずつ教えて。俺が、そばにいるから。"},
+    {"id":"a04","type":"dialogue","character":"kai","text":"死人が時間ぴったりに喋る。いいね。……でもさ、いちばん綺麗な答えほど、誰かが見せたがってる答えだったりするよ？","addEvidence":[{"id":"kai_pass","label":"KAIの非正規アクセス","text":"KAIは立入制限フロアに入れる非正規の資格情報を持っていた。"}]},
+    {"id":"a05","type":"choice","title":"誰の言葉をいちばん信じたい？","text":"正解を選ぶ場面ではない。今のあなた自身の感覚を選ぶ。","options":[
+      {"id":"trust_rei","label":"REI — 事実だけを見る彼","feedback":"彼なら状況を整理してくれそうだ。"},
+      {"id":"trust_minato","label":"MINATO — 自分を落ち着かせてくれる彼","feedback":"彼だけは味方でいてくれそうだ。"},
+      {"id":"trust_kai","label":"KAI — 嘘を見抜きそうな彼","feedback":"危険だが、退屈な答えには流されなさそうだ。"}
+    ]},
+    {"id":"a06","type":"dialogue","character":"rei","text":"記録を一件、俺が書き換えた。被害者の部屋を許可なく調べた事実を隠すためだ。だが、殺してはいない。","addEvidence":[{"id":"rei_record","label":"改ざんされた警備記録","text":"REIが一件の記録を変更していた。目的は無許可捜索の隠蔽。"}]},
+    {"id":"a07","type":"narration","eyebrow":"SYSTEM CHECK","title":"23:30は何の時刻か","text":"ホテルのメッセージシステムを確認すると、音声は事前録音し、指定時刻に自動配信できることが分かった。","addEvidence":[{"id":"scheduled","label":"予約配信機能","text":"音声メッセージは録音時刻と配信時刻を別々に設定できる。"}]},
+    {"id":"a08","type":"reasoning","title":"崩すべき前提は？","text":"被害者が23:30より前に死亡していたことと、23:30に本人の声が届いたことは両立する。どう考える？","options":[
+      {"id":"r1","label":"死亡推定そのものが間違っている","correct":false,"feedback":"それでは予約配信機能という新情報を説明に使えていない。"},
+      {"id":"r2","label":"23:30は録音時刻ではなく、配信時刻だった","correct":true,"feedback":"そうだ。23:30は偽の『生存時刻』として利用できる。"},
+      {"id":"r3","label":"声はKAIの物真似だった","correct":false,"feedback":"魅力的だが、本人の音声であることは確認済みだ。"}
+    ]},
+    {"id":"a09","type":"dialogue","character":"minato","text":"……そこまで分かったんだ。じゃあ、もう一つだけ。部屋のカーテンは閉まっていた。俺が最後に会った時から、ずっと。","addEvidence":[{"id":"room_detail","label":"MINATOしか知らない部屋の状態","text":"MINATOは『最後に会った時刻』の主張では知り得ないはずの、死亡後の室内状態を知っていた。"}]},
+    {"id":"a10","type":"narration","eyebrow":"CONTRADICTION","title":"優しい証言だけが、時間と合わない","text":"MINATOは23:30近くまで被害者が生きていたと語った。だが予約配信がその前提を消し、さらに彼の知識はもっと早い時間に部屋へいたことを示している。"},
+    {"id":"a11","type":"accuse","title":"あなたは誰を指名する？","text":"動機ではなく、時間の嘘と知識の矛盾で答える。","correct":"minato","wrongFeedback":"その人物は怪しい秘密を持つ。だが23:30という偽の時間境界を作る必要性まで説明できない。"},
+    {"id":"a12","type":"end","character":"minato","title":"MINATO","text":"彼は予約メッセージを利用し、被害者が23:30まで生きていたように見せた。REIとKAIの秘密は、真相を隠すために利用された別の嘘だった。","quote":"……そっか。君は、俺を信じたかったんだね。それでも見つけた。"}
+  ]
+}
