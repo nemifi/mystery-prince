@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mystery-prince.local/schemas/experience-contract-v0.1.schema.json",
+  "title": "MYSTERY PRINCE Experience Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experience",
+    "castings",
+    "facts",
+    "relations",
+    "knowledge",
+    "opportunities",
+    "completion_conditions",
+    "capabilities",
+    "adaptation_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "premise", "player_question", "dramatic_spine", "truth", "resolution"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "premise": {"type": "string", "minLength": 1},
+        "player_question": {"type": "string", "minLength": 1},
+        "dramatic_spine": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "truth": {"type": "string", "minLength": 1},
+        "resolution": {"type": "string", "minLength": 1}
+      }
+    },
+    "castings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "prince_id", "role"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "prince_id": {"type": "string", "minLength": 1},
+          "role": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["label", "description"],
+            "properties": {
+              "label": {"type": "string", "minLength": 1},
+              "description": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "proposition", "truth_value", "canon"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "proposition": {"type": "string", "minLength": 1},
+          "truth_value": {"enum": ["true", "false", "uncertain"]},
+          "canon": {"enum": ["hard", "soft"]}
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "from", "to"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "minLength": 1},
+          "from": {"type": "string", "minLength": 1},
+          "to": {"type": "string", "minLength": 1},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "knowledge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["holder", "fact_ids"],
+        "properties": {
+          "holder": {"type": "string", "minLength": 1},
+          "fact_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "opportunities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "capability", "targets", "requires_fact_ids", "reveals_fact_ids"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "capability": {"type": "string", "minLength": 1},
+          "targets": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          },
+          "requires_fact_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          },
+          "reveals_fact_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          },
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "completion_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description", "required_fact_ids"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "required_fact_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "optional"],
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "optional": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "adaptation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locked", "adaptive", "free"],
+      "properties": {
+        "locked": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "adaptive": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "free": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    }
+  }
+}
