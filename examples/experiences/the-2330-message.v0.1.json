@@ -19,33 +19,9 @@
     "resolution": "The player proves the 23:30 message was scheduled, disproves BETA's claimed last-seen timeline, and identifies BETA as the culprit."
   },
   "castings": [
-    {
-      "id": "cast_a_alpha",
-      "prince_id": "prince_alpha",
-      "role": {
-        "label": "Hotel security director",
-        "description": "Controls the incident response and access records; conceals an unauthorized search.",
-        "narrative_function": "authority_false_solution"
-      }
-    },
-    {
-      "id": "cast_a_beta",
-      "prince_id": "prince_beta",
-      "role": {
-        "label": "Victim's private physician",
-        "description": "The player's warmest apparent ally; actually the culprit, motivated by protecting another person.",
-        "narrative_function": "trusted_ally_culprit"
-      }
-    },
-    {
-      "id": "cast_a_gamma",
-      "prince_id": "prince_gamma",
-      "role": {
-        "label": "Invited illusionist",
-        "description": "Possesses unauthorized access for an unrelated objective and supplies entertaining suspicion.",
-        "narrative_function": "provocative_red_herring"
-      }
-    }
+    {"id": "cast_a_alpha", "prince_id": "prince_alpha", "role": {"label": "Hotel security director", "description": "Controls the incident response and access records; conceals an unauthorized search.", "narrative_function": "authority_false_solution"}},
+    {"id": "cast_a_beta", "prince_id": "prince_beta", "role": {"label": "Victim's private physician", "description": "The player's warmest apparent ally; actually the culprit, motivated by protecting another person.", "narrative_function": "trusted_ally_culprit"}},
+    {"id": "cast_a_gamma", "prince_id": "prince_gamma", "role": {"label": "Invited illusionist", "description": "Possesses unauthorized access for an unrelated objective and supplies entertaining suspicion.", "narrative_function": "provocative_red_herring"}}
   ],
   "facts": [
     {"id": "f_a_01", "proposition": "The victim was already dead before 23:30.", "truth_value": "true", "canon": "hard"},
@@ -61,7 +37,7 @@
   "relations": [
     {"id": "r_a_01", "type": "contradicts", "from": "f_a_01", "to": "f_a_04", "description": "The actual death window makes BETA's claimed sighting impossible."},
     {"id": "r_a_02", "type": "supports", "from": "f_a_09", "to": "f_a_03", "description": "Scheduled delivery capability makes an earlier recording possible."},
-    {"id": "r_a_03", "type": "supports", "from": "f_a_07", "to": "f_a_04", "description": "BETA's knowledge exposes his false timeline rather than supporting the claimed sighting."},
+    {"id": "r_a_03", "type": "supports", "from": "f_a_07", "to": "f_a_04", "description": "BETA's privileged knowledge undermines his claimed timeline."},
     {"id": "r_a_04", "type": "supports", "from": "f_a_03", "to": "f_a_01", "description": "The message no longer requires the victim to be alive at delivery time."}
   ],
   "knowledge": [
@@ -71,50 +47,19 @@
     {"holder": "cast_a_gamma", "fact_ids": ["f_a_06"]}
   ],
   "opportunities": [
-    {
-      "id": "op_a_01",
-      "capability": "inspect_information",
-      "targets": ["hotel_communication_system"],
-      "requires_fact_ids": ["f_a_02"],
-      "reveals_fact_ids": ["f_a_09", "f_a_03"],
-      "description": "Determine whether the 23:30 message proves the victim was alive at 23:30."
-    },
-    {
-      "id": "op_a_02",
-      "capability": "question_character",
-      "targets": ["cast_a_alpha"],
-      "requires_fact_ids": ["f_a_02"],
-      "reveals_fact_ids": ["f_a_05"],
-      "description": "Expose ALPHA's record manipulation and create the first false solution."
-    },
-    {
-      "id": "op_a_03",
-      "capability": "question_character",
-      "targets": ["cast_a_gamma"],
-      "requires_fact_ids": ["f_a_05"],
-      "reveals_fact_ids": ["f_a_06"],
-      "description": "Expose GAMMA's illicit access without resolving the central timeline contradiction."
-    },
-    {
-      "id": "op_a_04",
-      "capability": "challenge_claim",
-      "targets": ["cast_a_beta"],
-      "requires_fact_ids": ["f_a_01", "f_a_03", "f_a_07"],
-      "reveals_fact_ids": ["f_a_04", "f_a_08"],
-      "description": "Use timeline and privileged knowledge to break BETA's claim and identify the culprit."
+    {"id": "op_a_01", "capability": "inspect_information", "targets": ["hotel_communication_system"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_09", "f_a_03"], "description": "Determine whether the 23:30 message proves the victim was alive at 23:30."},
+    {"id": "op_a_02", "capability": "inspect_information", "targets": ["death_window"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_01"], "description": "Establish that the victim was already dead before the message was delivered."},
+    {"id": "op_a_03", "capability": "question_character", "targets": ["cast_a_alpha"], "requires_fact_ids": ["f_a_02"], "reveals_fact_ids": ["f_a_05"], "description": "Expose ALPHA's record manipulation and create the first false solution."},
+    {"id": "op_a_04", "capability": "question_character", "targets": ["cast_a_gamma"], "requires_fact_ids": ["f_a_05"], "reveals_fact_ids": ["f_a_06"], "description": "Expose GAMMA's illicit access without resolving the central timeline contradiction."},
+    {"id": "op_a_05", "capability": "question_character", "targets": ["cast_a_beta"], "requires_fact_ids": ["f_a_03"], "reveals_fact_ids": ["f_a_07"], "description": "Notice that BETA reveals knowledge inconsistent with his own stated timeline."},
+    {"id": "op_a_06", "capability": "challenge_claim", "targets": ["cast_a_beta"], "requires_fact_ids": ["f_a_01", "f_a_03", "f_a_07"], "reveals_fact_ids": ["f_a_04"], "description": "Break BETA's claimed last-seen timeline."},
+    {"id": "op_a_07", "capability": "make_decision", "targets": ["cast_a_alpha", "cast_a_beta", "cast_a_gamma"], "success_target_ids": ["cast_a_beta"], "requires_fact_ids": ["f_a_01", "f_a_03", "f_a_04", "f_a_07"], "reveals_fact_ids": ["f_a_08"], "description": "Choose who caused the victim's death."
     }
   ],
   "completion_conditions": [
-    {
-      "id": "complete_a_01",
-      "description": "Resolve the false 23:30 time boundary and identify BETA as the culprit through evidence rather than motive alone.",
-      "required_fact_ids": ["f_a_03", "f_a_04", "f_a_08"]
-    }
+    {"id": "complete_a_01", "description": "Resolve the false 23:30 time boundary and correctly accuse BETA through evidence rather than motive alone.", "required_fact_ids": ["f_a_03", "f_a_04", "f_a_08"], "required_opportunity_ids": ["op_a_07"]}
   ],
-  "capabilities": {
-    "required": ["inspect_information", "question_character", "challenge_claim", "make_decision"],
-    "optional": ["form_hypothesis"]
-  },
+  "capabilities": {"required": ["inspect_information", "question_character", "challenge_claim", "make_decision"], "optional": ["form_hypothesis"]},
   "adaptation_policy": {
     "locked": ["experience.truth", "experience.player_question", "experience.resolution", "castings.prince_id", "castings.role.narrative_function"],
     "adaptive": ["experience.dramatic_spine pacing", "dialogue wording", "discovery order within fair-play constraints", "hint density"],
