@@ -14,3 +14,5 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements-dev.txt
       - run: python tools/validate_contracts.py
+      - run: python tools/compile_realizations.py --write-dir build/realizations
+      - run: python tools/runtime_v1.py --auto build/realizations/*.json
