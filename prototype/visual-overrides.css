@@ -1,0 +1,12 @@
+.portrait{background-size:cover!important;background-position:center 18%!important;filter:saturate(.9) contrast(1.03)!important;border:1px solid rgba(255,255,255,.12)}
+.portrait:before,.portrait:after{display:none!important}
+.portrait.rei{background-image:linear-gradient(180deg,transparent 55%,rgba(4,8,13,.38)),url('./assets/rei.jpg')!important}
+.portrait.minato{background-image:linear-gradient(180deg,transparent 55%,rgba(4,8,13,.34)),url('./assets/minato.jpg')!important}
+.portrait.kai{background-image:linear-gradient(180deg,transparent 55%,rgba(4,8,13,.38)),url('./assets/kai.jpg')!important}
+.scene.hotel{background-image:linear-gradient(105deg,rgba(5,10,16,.45),rgba(5,10,16,.86)),url('./assets/hotel.jpg')!important;background-size:cover!important;background-position:center!important}
+.scene.train{background-image:linear-gradient(105deg,rgba(5,10,16,.43),rgba(5,10,16,.86)),url('./assets/train.jpg')!important;background-size:cover!important;background-position:center!important}
+.scene.hotel:before,.scene.train:before{background:radial-gradient(circle at 68% 24%,rgba(204,159,99,.18),transparent 28%),linear-gradient(180deg,rgba(5,9,14,.08),rgba(5,9,14,.35))!important}
+.episode-card.hotel{background-image:linear-gradient(180deg,rgba(4,8,12,.05) 10%,rgba(4,8,12,.94) 88%),url('./assets/hotel.jpg')!important;background-size:cover!important;background-position:center!important}
+.episode-card.train{background-image:linear-gradient(180deg,rgba(4,8,12,.05) 10%,rgba(4,8,12,.94) 88%),url('./assets/train.jpg')!important;background-size:cover!important;background-position:center!important}
+.episode-card:before{background:linear-gradient(180deg,transparent 18%,rgba(3,7,11,.88) 84%)!important}
+@media(max-width:760px){.portrait{background-position:center 12%!important}.scene.hotel,.scene.train{background-position:center!important}}
