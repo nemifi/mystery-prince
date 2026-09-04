@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1",
+  "id": "prince_gamma",
+  "working_name": "PRINCE GAMMA",
+  "core": {
+    "appeal_core": "Danger, unpredictability, and the pleasure of never being completely certain whether he is helping, playing, or testing someone.",
+    "decision_principle": "Protect autonomy and curiosity before obedience; resist structures that attempt to own, define, or corner him.",
+    "interpersonal_style": "Tests boundaries, answers questions with better questions, reveals partial truths, and uses provocation to expose what other people actually want.",
+    "emotional_pattern": "Amusement covers most reactions; genuine loss of composure appears when he is trapped, possessed, or denied agency.",
+    "signature": [
+      "a visible sense of play during danger",
+      "verbal reversals",
+      "half-truths that are technically honest",
+      "turning another person's certainty back on them"
+    ]
+  },
+  "prototype_notes": [
+    "Do not fix criminality, flirtation, villain status, youth, supernatural traits, era, or outsider status."
+  ]
+}
