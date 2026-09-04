@@ -21,6 +21,20 @@ Then open:
 http://localhost:8000/prototype/
 ```
 
+## Current shell
+
+The shell now includes:
+
+- two playable concept-test slices using the same renderer
+- REI / MINATO / KAI concept portraits
+- hotel / train atmosphere art
+- dialogue, information reveal, choice, deduction, and explicit accusation
+- local event logging
+- a short H1/H2 debrief shown after both episodes are completed
+- JSON export of the play log and debrief answers via the `TEST LOG` control
+
+The visual assets are test assets, not final launch art. `visual-overrides.css` is deliberately separate from the base shell so art direction can be replaced without changing event logic.
+
 ## Content model
 
 `app.js` is intentionally work-agnostic. The two slices are data:
@@ -40,12 +54,6 @@ Supported temporary event types:
 
 These event types belong to this disposable prototype realization, not to the durable Experience Contract.
 
-## Art
-
-The current checked-in shell uses abstract CSS portrait placeholders so interaction work does not wait for final art.
-
-Before external H1 testing, replace them with the cross-ROLE visual identity assets specified by `docs/27-prince-visual-identity.md`. Keep the shell's data/API boundary stable while swapping visual presentation.
-
 ## Test logging
 
 Major interactions are written to browser `localStorage` under:
@@ -54,7 +62,22 @@ Major interactions are written to browser `localStorage` under:
 mp_concept_log
 ```
 
-The browser console also receives `[MP TEST]` rows. No server analytics are required for the first facilitated tests.
+Debrief answers are stored under:
+
+```text
+mp_concept_debrief
+```
+
+The `TEST LOG` button downloads both as one JSON file. No server analytics are required for the first tests.
+
+## Suggested test protocol
+
+Where possible, counterbalance episode order:
+
+- Group A: THE 23:30 MESSAGE → THE SEALED EXPRESS
+- Group B: THE SEALED EXPRESS → THE 23:30 MESSAGE
+
+Do not explain the star-system hypothesis before both works are complete. The useful signal is whether testers spontaneously say things like “this still feels like him,” “I like this version,” or “what role will he play next?”
 
 ## Exit condition
 
