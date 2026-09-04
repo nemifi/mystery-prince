@@ -1,0 +1,35 @@
+{
+  "realization_version": "1",
+  "id": "realization_proto_002_v1",
+  "source_experience_id": "exp_proto_002",
+  "title": "THE SEALED EXPRESS",
+  "premise": "On an interwar luxury night train, a famous jewel is discovered to be a replica after a tunnel blackout even though its locked display was never opened during the journey.",
+  "cast": [
+    {"casting_id": "cast_b_alpha", "prince_id": "prince_alpha", "role_label": "Exhibition curator and diplomatic aide"},
+    {"casting_id": "cast_b_beta", "prince_id": "prince_beta", "role_label": "Railway investigator"},
+    {"casting_id": "cast_b_gamma", "prince_id": "prince_gamma", "role_label": "Chief conductor"}
+  ],
+  "facts": [
+    {"id": "f_b_01", "text": "The display seals remained intact throughout the journey."},
+    {"id": "f_b_02", "text": "The jewel inside the display after the tunnel is a replica."},
+    {"id": "f_b_03", "text": "A pre-departure image already shows the replica rather than the authenticated original."},
+    {"id": "f_b_04", "text": "The substitution did not occur during the tunnel blackout."},
+    {"id": "f_b_05", "text": "GAMMA violated a train procedure during the journey."},
+    {"id": "f_b_06", "text": "ALPHA had custody-level access before the display was sealed for departure."},
+    {"id": "f_b_07", "text": "ALPHA demonstrates unusually precise knowledge of a distinctive feature of the authenticated original."},
+    {"id": "f_b_08", "text": "ALPHA replaced the real jewel before departure."},
+    {"id": "f_b_09", "text": "The tunnel alarm created a memorable time boundary but did not prove access to the jewel."}
+  ],
+  "initial_known_fact_ids": ["f_b_01", "f_b_02"],
+  "actions": [
+    {"id": "op_b_01", "capability": "question_character", "label": "Question GAMMA about train procedure.", "targets": ["cast_b_gamma"], "requires_fact_ids": ["f_b_01", "f_b_02"], "reveals_fact_ids": ["f_b_05"]},
+    {"id": "op_b_02", "capability": "inspect_information", "label": "Inspect the pre-departure image.", "targets": ["pre_departure_image"], "requires_fact_ids": ["f_b_02"], "reveals_fact_ids": ["f_b_03"]},
+    {"id": "op_b_03", "capability": "form_hypothesis", "label": "Reconsider the assumed crime window.", "targets": ["crime_window"], "requires_fact_ids": ["f_b_01", "f_b_03"], "reveals_fact_ids": ["f_b_04", "f_b_09"]},
+    {"id": "op_b_04", "capability": "inspect_information", "label": "Inspect the pre-departure custody record.", "targets": ["pre_departure_custody_record"], "requires_fact_ids": ["f_b_03"], "reveals_fact_ids": ["f_b_06"]},
+    {"id": "op_b_05", "capability": "challenge_claim", "label": "Challenge ALPHA about his knowledge of the original jewel.", "targets": ["cast_b_alpha"], "requires_fact_ids": ["f_b_03", "f_b_06"], "reveals_fact_ids": ["f_b_07"]},
+    {"id": "op_b_06", "capability": "make_decision", "label": "Who replaced the real jewel?", "targets": ["cast_b_alpha", "cast_b_beta", "cast_b_gamma"], "success_target_ids": ["cast_b_alpha"], "requires_fact_ids": ["f_b_03", "f_b_04", "f_b_06", "f_b_07"], "reveals_fact_ids": ["f_b_08"]}
+  ],
+  "completion_conditions": [
+    {"id": "complete_b_01", "description": "Prove the tunnel was a false crime window and correctly accuse ALPHA.", "required_fact_ids": ["f_b_03", "f_b_04", "f_b_08"], "required_action_ids": ["op_b_06"]}
+  ]
+}
