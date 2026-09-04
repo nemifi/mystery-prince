@@ -17,9 +17,7 @@
     "adaptation_policy"
   ],
   "properties": {
-    "schema_version": {
-      "const": "0.1"
-    },
+    "schema_version": {"const": "0.1"},
     "experience": {
       "type": "object",
       "additionalProperties": false,
@@ -29,11 +27,7 @@
         "title": {"type": "string", "minLength": 1},
         "premise": {"type": "string", "minLength": 1},
         "player_question": {"type": "string", "minLength": 1},
-        "dramatic_spine": {
-          "type": "array",
-          "minItems": 1,
-          "items": {"type": "string", "minLength": 1}
-        },
+        "dramatic_spine": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
         "truth": {"type": "string", "minLength": 1},
         "resolution": {"type": "string", "minLength": 1}
       }
@@ -96,11 +90,7 @@
         "required": ["holder", "fact_ids"],
         "properties": {
           "holder": {"type": "string", "minLength": 1},
-          "fact_ids": {
-            "type": "array",
-            "items": {"type": "string", "minLength": 1},
-            "uniqueItems": true
-          }
+          "fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
         }
       }
     },
@@ -113,18 +103,10 @@
         "properties": {
           "id": {"type": "string", "minLength": 1},
           "capability": {"type": "string", "minLength": 1},
-          "targets": {
-            "type": "array",
-            "items": {"type": "string", "minLength": 1}
-          },
-          "requires_fact_ids": {
-            "type": "array",
-            "items": {"type": "string", "minLength": 1}
-          },
-          "reveals_fact_ids": {
-            "type": "array",
-            "items": {"type": "string", "minLength": 1}
-          },
+          "targets": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "success_target_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "requires_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "reveals_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
           "description": {"type": "string"}
         }
       }
@@ -135,14 +117,12 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "description", "required_fact_ids"],
+        "required": ["id", "description", "required_fact_ids", "required_opportunity_ids"],
         "properties": {
           "id": {"type": "string", "minLength": 1},
           "description": {"type": "string", "minLength": 1},
-          "required_fact_ids": {
-            "type": "array",
-            "items": {"type": "string", "minLength": 1}
-          }
+          "required_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "required_opportunity_ids": {"type": "array", "items": {"type": "string", "minLength": 1}}
         }
       }
     },
@@ -151,16 +131,8 @@
       "additionalProperties": false,
       "required": ["required", "optional"],
       "properties": {
-        "required": {
-          "type": "array",
-          "items": {"type": "string", "minLength": 1},
-          "uniqueItems": true
-        },
-        "optional": {
-          "type": "array",
-          "items": {"type": "string", "minLength": 1},
-          "uniqueItems": true
-        }
+        "required": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "optional": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
       }
     },
     "adaptation_policy": {
