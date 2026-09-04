@@ -22,37 +22,51 @@ This directory contains the evolving product, IP, platform, content-production, 
 11. [`20-master-work-b.md`](20-master-work-b.md) — prototype work B
 12. [`21-runtime-v1-contract-test-harness.md`](21-runtime-v1-contract-test-harness.md) — executable architecture proof, not product UI
 13. [`22-build-sequence.md`](22-build-sequence.md) — phased path from schema validation to user testing
+14. [`23-realization-v1-format.md`](23-realization-v1-format.md) — disposable Runtime-v1 package format
+15. [`24-concept-test-protocol.md`](24-concept-test-protocol.md) — qualitative H1/H2 validation protocol
 
-Machine-readable fixtures:
+### Machine-readable fixtures and tooling
+
+Schemas:
 
 - [`../schemas/experience-contract-v0.1.schema.json`](../schemas/experience-contract-v0.1.schema.json)
+- [`../schemas/prince-core-v0.1.schema.json`](../schemas/prince-core-v0.1.schema.json)
+- [`../schemas/realization-v1.schema.json`](../schemas/realization-v1.schema.json)
+
+Prototype data:
+
+- [`../examples/princes/`](../examples/princes/)
 - [`../examples/experiences/the-2330-message.v0.1.json`](../examples/experiences/the-2330-message.v0.1.json)
 - [`../examples/experiences/the-sealed-express.v0.1.json`](../examples/experiences/the-sealed-express.v0.1.json)
+- [`../examples/realizations/`](../examples/realizations/)
+
+Development tools:
+
+- `tools/validate_contracts.py`
+- `tools/compile_realizations.py`
+- `tools/runtime_v1.py`
+- `.github/workflows/validate-contracts.yml`
+
+CI currently validates semantic fixtures, compiles both prototype EXPERIENCES into Realization v1, and auto-plays both through the same Runtime-v1 harness.
 
 ### Earlier product and IP notes
 
-14. [`00-vision-and-principles.md`](00-vision-and-principles.md)
-15. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
-16. [`02-prince-character-model.md`](02-prince-character-model.md)
-17. [`03-product-and-game-model.md`](03-product-and-game-model.md)
-18. [`04-ai-content-production.md`](04-ai-content-production.md)
-19. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
-20. [`06-mystery-data-model.md`](06-mystery-data-model.md)
-21. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
-22. [`08-open-questions.md`](08-open-questions.md)
-23. [`11-root-design-checklist.md`](11-root-design-checklist.md)
-24. [`adr/`](adr/) — accepted architectural/product decisions
+16. [`00-vision-and-principles.md`](00-vision-and-principles.md)
+17. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
+18. [`02-prince-character-model.md`](02-prince-character-model.md)
+19. [`03-product-and-game-model.md`](03-product-and-game-model.md)
+20. [`04-ai-content-production.md`](04-ai-content-production.md)
+21. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
+22. [`06-mystery-data-model.md`](06-mystery-data-model.md)
+23. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
+24. [`08-open-questions.md`](08-open-questions.md)
+25. [`11-root-design-checklist.md`](11-root-design-checklist.md)
+26. [`adr/`](adr/) — accepted architectural/product decisions
 
 ## Current design posture
 
 > **Broad platform definition, narrow initial implementation.**
 
-MYSTERY PRINCE is intentionally not bound to today's UI, AI capabilities, content duration, or game format. Speculative future features should not be implemented in the MVP merely to demonstrate extensibility.
+The architecture proof has now passed its first automated loop. The next uncertainty is not whether the data can execute; it is whether target users actually value recurring PRINCES across radically different ROLEs and whether character emotion improves the mystery experience.
 
-The stable conceptual core remains:
-
-- **PRINCE**
-- **MYSTERY**
-- **EXPERIENCE**
-
-The immediate proof is now concrete: represent two substantially different works with recurring PRINCES through one Experience Contract, validate them, compile them into one Runtime-v1 format, and run them without work-specific application code.
+The commercial game UI should remain open until that evidence is collected.
