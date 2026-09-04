@@ -12,7 +12,7 @@ This directory contains the evolving product, IP, platform, content-production, 
 4. [`13-experience-core-and-contract.md`](13-experience-core-and-contract.md) — EXPERIENCE identity, canon policy, and contract semantics
 5. [`14-authoring-compiler-runtime-model.md`](14-authoring-compiler-runtime-model.md) — whole work → semantic model → realization → runtime
 
-### Prototype architecture
+### Prototype architecture and validation
 
 6. [`15-prince-core-minimum.md`](15-prince-core-minimum.md) — minimal portable PRINCE identity
 7. [`16-mvp-and-validation-plan.md`](16-mvp-and-validation-plan.md) — hypotheses and validation boundary
@@ -24,6 +24,7 @@ This directory contains the evolving product, IP, platform, content-production, 
 13. [`22-build-sequence.md`](22-build-sequence.md) — phased path from schema validation to user testing
 14. [`23-realization-v1-format.md`](23-realization-v1-format.md) — disposable Runtime-v1 package format
 15. [`24-concept-test-protocol.md`](24-concept-test-protocol.md) — qualitative H1/H2 validation protocol
+16. [`25-vertical-slice-spec.md`](25-vertical-slice-spec.md) — creative requirements for the two H1/H2 test slices
 
 ### Machine-readable fixtures and tooling
 
@@ -47,26 +48,26 @@ Development tools:
 - `tools/runtime_v1.py`
 - `.github/workflows/validate-contracts.yml`
 
-CI currently validates semantic fixtures, compiles both prototype EXPERIENCES into Realization v1, and auto-plays both through the same Runtime-v1 harness.
+CI validates semantic fixtures, compiles both prototype EXPERIENCES into Realization v1, and auto-plays both through the same Runtime-v1 harness.
 
 ### Earlier product and IP notes
 
-16. [`00-vision-and-principles.md`](00-vision-and-principles.md)
-17. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
-18. [`02-prince-character-model.md`](02-prince-character-model.md)
-19. [`03-product-and-game-model.md`](03-product-and-game-model.md)
-20. [`04-ai-content-production.md`](04-ai-content-production.md)
-21. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
-22. [`06-mystery-data-model.md`](06-mystery-data-model.md)
-23. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
-24. [`08-open-questions.md`](08-open-questions.md)
-25. [`11-root-design-checklist.md`](11-root-design-checklist.md)
-26. [`adr/`](adr/) — accepted architectural/product decisions
+17. [`00-vision-and-principles.md`](00-vision-and-principles.md)
+18. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
+19. [`02-prince-character-model.md`](02-prince-character-model.md)
+20. [`03-product-and-game-model.md`](03-product-and-game-model.md)
+21. [`04-ai-content-production.md`](04-ai-content-production.md)
+22. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
+23. [`06-mystery-data-model.md`](06-mystery-data-model.md)
+24. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
+25. [`08-open-questions.md`](08-open-questions.md)
+26. [`11-root-design-checklist.md`](11-root-design-checklist.md)
+27. [`adr/`](adr/) — accepted architectural/product decisions
 
 ## Current design posture
 
 > **Broad platform definition, narrow initial implementation.**
 
-The architecture proof has now passed its first automated loop. The next uncertainty is not whether the data can execute; it is whether target users actually value recurring PRINCES across radically different ROLEs and whether character emotion improves the mystery experience.
+The architecture proof has passed its first automated loop. The next uncertainty is not whether the data can execute; it is whether target users actually value recurring PRINCES across radically different ROLEs and whether character emotion improves the mystery experience.
 
 The commercial game UI should remain open until that evidence is collected.
