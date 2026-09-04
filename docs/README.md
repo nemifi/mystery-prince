@@ -27,6 +27,8 @@ This directory contains the evolving product, IP, platform, content-production, 
 16. [`23-realization-v1-format.md`](23-realization-v1-format.md) — disposable Runtime-v1 package format
 17. [`24-concept-test-protocol.md`](24-concept-test-protocol.md) — qualitative H1/H2 validation protocol
 18. [`25-vertical-slice-spec.md`](25-vertical-slice-spec.md) — creative requirements for the two H1/H2 test slices
+19. [`26-concept-test-presentation-shell.md`](26-concept-test-presentation-shell.md) — minimal polished shell for user-facing concept testing
+20. [`27-prince-visual-identity.md`](27-prince-visual-identity.md) — cross-ROLE visual identity rules for REI / MINATO / KAI
 
 ### Machine-readable fixtures and tooling
 
@@ -54,17 +56,17 @@ CI validates semantic fixtures, compiles both prototype EXPERIENCES into Realiza
 
 ### Earlier product and IP notes
 
-19. [`00-vision-and-principles.md`](00-vision-and-principles.md)
-20. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
-21. [`02-prince-character-model.md`](02-prince-character-model.md)
-22. [`03-product-and-game-model.md`](03-product-and-game-model.md)
-23. [`04-ai-content-production.md`](04-ai-content-production.md)
-24. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
-25. [`06-mystery-data-model.md`](06-mystery-data-model.md)
-26. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
-27. [`08-open-questions.md`](08-open-questions.md)
-28. [`11-root-design-checklist.md`](11-root-design-checklist.md)
-29. [`adr/`](adr/) — accepted architectural/product decisions
+21. [`00-vision-and-principles.md`](00-vision-and-principles.md)
+22. [`01-ip-and-brand-model.md`](01-ip-and-brand-model.md)
+23. [`02-prince-character-model.md`](02-prince-character-model.md)
+24. [`03-product-and-game-model.md`](03-product-and-game-model.md)
+25. [`04-ai-content-production.md`](04-ai-content-production.md)
+26. [`05-runtime-and-architecture.md`](05-runtime-and-architecture.md)
+27. [`06-mystery-data-model.md`](06-mystery-data-model.md)
+28. [`07-quality-bar-and-risks.md`](07-quality-bar-and-risks.md)
+29. [`08-open-questions.md`](08-open-questions.md)
+30. [`11-root-design-checklist.md`](11-root-design-checklist.md)
+31. [`adr/`](adr/) — accepted architectural/product decisions
 
 ## Current design posture
 
