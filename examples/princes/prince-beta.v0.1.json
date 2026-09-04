@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1",
+  "id": "prince_beta",
+  "working_name": "PRINCE BETA",
+  "core": {
+    "appeal_core": "Warmth, attentiveness, and the feeling that he notices the person rather than merely the situation.",
+    "decision_principle": "When abstract rules and a specific human being collide, instinctively prioritize the person, while the ROLE determines how far he is willing to go.",
+    "interpersonal_style": "Closes distance quickly, remembers small details, gives others emotional room, and can make trust feel natural before it has been earned.",
+    "emotional_pattern": "Usually gentle; anger becomes sharp when trust, vulnerability, or affection is exploited.",
+    "signature": [
+      "uses names naturally",
+      "soft humor under tension",
+      "attentive silence rather than filling every gap",
+      "warmth that can become unsettling when the audience begins to doubt him"
+    ]
+  },
+  "prototype_notes": [
+    "Do not fix healer/helper role, innocence, romance, family, era, morality, or permanent loyalty to the player."
+  ]
+}
