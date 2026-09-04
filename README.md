@@ -2,57 +2,61 @@
 
 > A platform for continuously delivering and evolving interactive mystery experiences centered on attractive male characters.
 
-This repository is the design source of truth for **MYSTERY PRINCE / ミステリープリンス**.
+This repository is the design and prototype source of truth for **MYSTERY PRINCE / ミステリープリンス**.
 
-MYSTERY PRINCE is intentionally defined more broadly than its first implementation. It is not one fixed story, one fixed fictional universe, one fixed UI, or one fixed game format. The long-term platform should be able to absorb new interaction models and new AI capabilities without redefining the IP.
+## Current milestone
 
-## Current platform thesis
+**Wave 1 H1/H2 target-user validation.**
+
+The architecture proof and disposable concept-test build are ready. The only remaining operational blocker before external distribution is one-time GitHub Pages enablement for this repository.
+
+Read in this order:
+
+1. [Current milestone](docs/36-current-milestone.md)
+2. [Wave 1 launch checklist](docs/37-wave-1-launch-checklist.md)
+3. [Wave 1 runbook](docs/35-wave-1-concept-test-runbook.md)
+4. [Pre-committed analysis gates](docs/32-concept-test-analysis-and-gates.md)
+5. [Full design index](docs/README.md)
+
+Prepared Wave 1 operations include:
+
+- two ~11-minute mystery slices;
+- REI / MINATO / KAI in distinct A/B ROLE visuals;
+- participant-scoped test storage;
+- fixed A→B / B→A counterbalancing;
+- blind debrief before the recurring-character concept is revealed;
+- participant JSON export;
+- analysis CLI;
+- P001–P020 allocation with exact 10 AB / 10 BA split.
+
+The prepared participant URLs live in `ops/wave1-participant-links.csv` but **must not be distributed until GitHub Pages deployment and the P000 smoke test pass**.
+
+## Platform thesis
 
 The stable conceptual core is intentionally small:
 
-- **PRINCE** — who is at the center of the attraction
-- **MYSTERY** — what the user wants to know, solve, expose, or understand
-- **EXPERIENCE** — how the user participates in that mystery
+- **PRINCE** — who is at the center of the attraction;
+- **MYSTERY** — what the user wants to know, solve, expose, or understand;
+- **EXPERIENCE** — how the user participates in that mystery.
 
-Current principles:
+Key principles:
 
-- **MYSTERY PRINCE is a platform, not a fixed game format.**
-- **Prince is a broad brand label, not an in-world status.** A Prince does not need to be royalty and should not be over-defined.
-- **PRINCE and ROLE are separate.** A recurring Prince may play different professions, eras, relationships, moral positions, or culprit/suspect/investigator roles across independent experiences.
-- **Story continuity is optional, not a platform invariant.** The platform must not require one persistent fictional biography or universe.
-- **Each mystery should work as a complete entertainment work first.** We do not mechanically assemble UI parts and call the result a mystery.
-- **AI is initially an authoring/production tool, not a runtime dependency.** This may evolve later as economics, latency, quality, and capability improve.
-- **Content meaning is independent of presentation UI.** Creation and Runtime are separated by an evolving Experience Contract.
-- **Future extensibility should be preserved structurally, not by prematurely implementing speculative features.**
+- **MYSTERY PRINCE is a platform, not one fixed game format.**
+- **PRINCE is a broad brand label, not an in-world royal status.**
+- **PRINCE and ROLE are separate.** The same recurring PRINCE may play radically different professions, eras, moral positions, relationships, or culprit/investigator roles across independent works.
+- **Story continuity is optional.** A persistent fictional biography or shared universe is not a platform invariant.
+- **Each mystery must work as a whole entertainment work first.**
+- **AI is initially an authoring/production tool, not a runtime dependency.**
+- **Content meaning is independent of presentation UI.** Creation and Runtime meet through an evolving Experience Contract.
+- **Future extensibility is preserved through boundaries, not speculative feature implementation.**
 
-The desired posture is:
+The desired posture remains:
 
 > **Broad platform definition, narrow initial implementation.**
 
-## Working initial implementation
+## Architecture
 
-The first implementation may still be intentionally concrete, for example:
-
-- Mobile-first
-- Pre-authored / AI-assisted production-time content
-- Independent, self-contained mystery experiences
-- Multiple attractive male characters per experience
-- Roughly 30-minute sessions as an initial working target
-- Reusable high-quality character, background, evidence, sound, and presentation assets
-
-These are **working implementation choices**, not permanent definitions of MYSTERY PRINCE.
-
-Future EXPERIENCE types may include voice interaction, real-time AI characters, 3D investigation, multiplayer mystery, XR, or formats that do not yet exist.
-
-## Working brand persona
-
-**CROWN MASTER ZERO / クラウンマスター・ゼロ** is the current working designation for the IP-level host/persona associated with MYSTERY PRINCE. The role belongs to the brand layer, not to each mystery’s fictional continuity.
-
-This is intentionally not yet treated as immutable naming.
-
-## Architecture direction
-
-The platform is conceptually separated into five layers:
+Five conceptual layers:
 
 1. **Brand** — MYSTERY PRINCE, PRINCE, CROWN MASTER ZERO, brand principles
 2. **Content** — EXPERIENCE, MYSTERY, STORY, WORLD, ROLE, CAST
@@ -60,73 +64,49 @@ The platform is conceptually separated into five layers:
 4. **Runtime** — current and future ways to play/present an EXPERIENCE
 5. **Creation** — human/AI production, asset libraries, validation, authoring tools
 
-Creation outputs an **EXPERIENCE CONTRACT**. Runtime interprets that contract without forcing current UI assumptions into the long-term content model.
-
-The implementation mental model is:
+Implementation mental model:
 
 > **Whole Work Design → Experience Semantic Model → Validation → Realization Compilation → Runtime Playback**
 
-AI models are replaceable tools around this pipeline rather than the identity of the platform.
+## Architecture proof
 
-## Architecture proof: passing
+CI currently exercises:
 
-The first end-to-end architecture proof now exists and is exercised by CI:
+- Experience Contract JSON Schema v0.1;
+- PRINCE CORE JSON Schema v0.1;
+- three prototype PRINCE Cores;
+- two deliberately different MASTER WORKS using the same recurring PRINCES;
+- semantic/reference/reachability validation;
+- deterministic Experience → Realization-v1 compilation;
+- one Runtime-v1 harness for both works;
+- automatic completion of both Realizations;
+- disposable user-facing prototype validation;
+- blind Wave 1 build validation;
+- pacing diagnostics;
+- concept-test analysis self-tests;
+- balanced participant-link generation self-tests.
 
-- Experience Contract JSON Schema v0.1
-- PRINCE CORE JSON Schema v0.1
-- three prototype PRINCE Cores
-- two deliberately different MASTER WORKS using the same recurring PRINCES
-- two machine-readable Experience Contract fixtures
-- static semantic/reference/reachability validation
-- deterministic Experience → Realization-v1 compiler
-- disposable Runtime-v1 contract harness
-- automatic completion of both generated Realizations through the same runtime code path
+## What is intentionally unresolved
 
-The fixture work also already forced one useful schema correction: completion must represent an explicit successful player decision rather than treating discovery of truth as equivalent to acting on it.
+Do not prematurely settle these before Wave 1 evidence:
 
-This is the intended development pattern: concrete works stress the abstraction, and the abstraction evolves only when real works expose a need.
+- final commercial game UI;
+- monetization / gacha / collection;
+- daily retention systems;
+- runtime generative AI;
+- large-scale content generation;
+- long-term character relationship systems;
+- final launch character names/designs;
+- CROWN MASTER ZERO's final presentation.
 
-## What this does not prove
+The next product decision should come from target-user behavior, blind comments, and test data—not more speculative architecture.
 
-The current Runtime is intentionally not the commercial MYSTERY PRINCE game UI.
+## Working brand persona
 
-The remaining highest-risk questions are product questions:
-
-- Does a recurring PRINCE remain attractive and recognizable across radically different ROLEs and biographies?
-- Does character attachment make the mystery stronger rather than distracting from it?
-- Does the user want to see the same PRINCES cast again in new works?
-
-Until those are tested, final interaction design, retention systems, monetization architecture, and large-scale AI content production remain secondary.
-
-## Documents
-
-Start with the design index: [docs/README.md](docs/README.md)
-
-Current prototype path:
-
-1. [Current product thesis](docs/10-current-product-thesis.md)
-2. [Platform core & Experience Contract](docs/09-platform-core-and-experience-contract.md)
-3. [Domain model](docs/12-domain-model.md)
-4. [Experience Core](docs/13-experience-core-and-contract.md)
-5. [Authoring → Compiler → Runtime](docs/14-authoring-compiler-runtime-model.md)
-6. [PRINCE CORE minimum](docs/15-prince-core-minimum.md)
-7. [MVP / validation plan](docs/16-mvp-and-validation-plan.md)
-8. [Experience Contract Schema v0](docs/17-experience-contract-schema-v0.md)
-9. [Prototype PRINCES](docs/18-concept-prototype-princes.md)
-10. [MASTER WORK A](docs/19-master-work-a.md)
-11. [MASTER WORK B](docs/20-master-work-b.md)
-12. [Runtime v1 contract harness](docs/21-runtime-v1-contract-test-harness.md)
-13. [Build sequence](docs/22-build-sequence.md)
-14. [Realization v1](docs/23-realization-v1-format.md)
-15. [Concept-test protocol](docs/24-concept-test-protocol.md)
-16. [Architecture decisions](docs/adr/README.md)
+**CROWN MASTER ZERO / クラウンマスター・ゼロ** remains the working IP-level host/persona designation. It belongs to the brand layer rather than any individual mystery continuity and is not yet immutable naming.
 
 ## Status vocabulary
 
-- **DECIDED** — current design principle; change only deliberately.
-- **WORKING** — current best direction, still expected to evolve.
+- **DECIDED** — current design principle; change deliberately.
+- **WORKING** — current best direction; expected to evolve.
 - **OPEN** — intentionally unresolved.
-
-## Immediate objective
-
-The architecture proof has passed. The immediate next milestone is **H1/H2 creative validation**: make the two prototype slices polished enough for target users to judge the star-system and character × mystery experience rather than the roughness of the prototype.
