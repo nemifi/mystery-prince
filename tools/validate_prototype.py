@@ -3,12 +3,27 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTENT_DIR = ROOT / "prototype" / "content"
+PROTOTYPE_DIR = ROOT / "prototype"
+CONTENT_DIR = PROTOTYPE_DIR / "content"
+ASSET_DIR = PROTOTYPE_DIR / "assets"
 ALLOWED_TYPES = {"open", "narration", "dialogue", "choice", "reasoning", "accuse", "end"}
+REQUIRED_SHELL_FILES = {
+    "index.html",
+    "styles.css",
+    "visual-overrides.css",
+    "app.js",
+    "test-tools.css",
+    "test-tools.js",
+}
 
 
 def fail(msg):
     raise SystemExit(msg)
+
+
+def require_file(path: Path):
+    if not path.is_file() or path.stat().st_size <= 0:
+        fail(f"Missing or empty prototype file: {path.relative_to(ROOT)}")
 
 
 def validate(path: Path):
@@ -21,6 +36,16 @@ def validate(path: Path):
     cast_ids = {c["id"] for c in data["cast"]}
     if len(cast_ids) != len(data["cast"]):
         fail(f"{path}: duplicate cast IDs")
+
+    for cast in data["cast"]:
+        portrait = cast.get("portraitClass")
+        if not portrait:
+            fail(f"{path}: cast {cast.get('id')} is missing portraitClass")
+        require_file(ASSET_DIR / f"{portrait}.jpg")
+
+    scene = data.get("scene")
+    if scene:
+        require_file(ASSET_DIR / f"{scene}.jpg")
 
     events = data["events"]
     event_ids = [e.get("id") for e in events]
@@ -81,11 +106,16 @@ def validate(path: Path):
 
 
 def main():
+    for name in sorted(REQUIRED_SHELL_FILES):
+        require_file(PROTOTYPE_DIR / name)
+
     paths = sorted(CONTENT_DIR.glob("*.json"))
     if not paths:
         fail("No prototype content found")
     for path in paths:
         validate(path)
+
+    print("OK prototype shell assets/support files")
 
 
 if __name__ == "__main__":
