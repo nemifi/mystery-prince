@@ -62,6 +62,12 @@ The platform is currently separated conceptually into five layers:
 
 Creation should output a stable **EXPERIENCE CONTRACT**. Runtime should interpret that contract without forcing current UI assumptions into the long-term content model.
 
+A useful implementation mental model is becoming:
+
+> **Whole Work Design → Experience Semantic Model → Validation → Realization Compilation → Runtime Playback**
+
+AI models are replaceable tools around this pipeline rather than the identity of the platform.
+
 ## Documents
 
 Start with the design index: [docs/README.md](docs/README.md)
@@ -70,17 +76,22 @@ Key documents:
 
 1. [Current product thesis](docs/10-current-product-thesis.md)
 2. [Platform core & Experience Contract](docs/09-platform-core-and-experience-contract.md)
-3. [Vision and principles](docs/00-vision-and-principles.md)
-4. [IP and brand model](docs/01-ip-and-brand-model.md)
-5. [Prince / character model](docs/02-prince-character-model.md)
-6. [Product and game model](docs/03-product-and-game-model.md)
-7. [AI-assisted content production](docs/04-ai-content-production.md)
-8. [Runtime and architecture direction](docs/05-runtime-and-architecture.md)
-9. [Mystery data / semantic model](docs/06-mystery-data-model.md)
-10. [Quality bar and risks](docs/07-quality-bar-and-risks.md)
-11. [Open questions](docs/08-open-questions.md)
-12. [Root design checklist](docs/11-root-design-checklist.md)
-13. [Architecture decisions](docs/adr/README.md)
+3. [Durable domain model](docs/12-domain-model.md)
+4. [Experience Core and contract boundary](docs/13-experience-core-and-contract.md)
+5. [Authoring → Compiler → Runtime model](docs/14-authoring-compiler-runtime-model.md)
+6. [PRINCE CORE minimum](docs/15-prince-core-minimum.md)
+7. [MVP boundary and validation plan](docs/16-mvp-and-validation-plan.md)
+8. [Vision and principles](docs/00-vision-and-principles.md)
+9. [IP and brand model](docs/01-ip-and-brand-model.md)
+10. [Prince / character model](docs/02-prince-character-model.md)
+11. [Product and game model](docs/03-product-and-game-model.md)
+12. [AI-assisted content production](docs/04-ai-content-production.md)
+13. [Runtime and architecture direction](docs/05-runtime-and-architecture.md)
+14. [Mystery data / semantic model](docs/06-mystery-data-model.md)
+15. [Quality bar and risks](docs/07-quality-bar-and-risks.md)
+16. [Open questions](docs/08-open-questions.md)
+17. [Root design checklist](docs/11-root-design-checklist.md)
+18. [Architecture decisions](docs/adr/README.md)
 
 ## Status vocabulary
 
@@ -90,6 +101,6 @@ Key documents:
 
 ## Current design objective
 
-Before committing to detailed MVP UI or production architecture, continue clarifying the platform's root contracts and invariants.
+The root platform model is now sufficiently small to begin designing a first proof without treating the proof's UI or technology as permanent platform identity.
 
-The initial product should remain small, but its architecture should avoid accidentally defining today's UI, AI technology, session length, or story format as permanent characteristics of MYSTERY PRINCE.
+The next architectural milestone is to define a minimal schema/contract v0, then prove that two meaningfully different mystery works using recurring PRINCES can be authored as whole works, normalized into that contract, and realized by one simple Runtime v1 without custom engineering per work.
