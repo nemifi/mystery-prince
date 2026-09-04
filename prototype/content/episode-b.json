@@ -1,0 +1,34 @@
+{
+  "id": "concept_episode_b",
+  "title": "THE SEALED EXPRESS",
+  "scene": "train",
+  "premise": "夜行豪華列車。トンネル停電の直後、封印展示された宝石が偽物だと判明する。だが封印は一度も破られていない。",
+  "cast": [
+    {"id":"rei","name":"REI","role":"美術展学芸員・外交補佐","portraitClass":"rei"},
+    {"id":"minato","name":"MINATO","role":"鉄道捜査官","portraitClass":"minato"},
+    {"id":"kai","name":"KAI","role":"主任車掌","portraitClass":"kai"}
+  ],
+  "events": [
+    {"id":"b00","type":"open","eyebrow":"EPISODE 02","cta":"封印の外側を見る"},
+    {"id":"b01","type":"narration","eyebrow":"NIGHT EXPRESS / AFTER THE TUNNEL","title":"開いていない箱から、宝石が消えた","text":"トンネル停電と警報の直後、展示ケース内の宝石が偽物だと判明した。だが出発時から現在まで、ケースの封印はすべて無傷だ。","addEvidence":[{"id":"sealed","label":"無傷の封印","text":"展示ケースは列車出発後、一度も開封された痕跡がない。"},{"id":"replica","label":"ケース内の偽物","text":"現在展示されている宝石は精巧なレプリカ。"}]},
+    {"id":"b02","type":"dialogue","character":"kai","text":"この列車では、皆が何かを隠してる。規則を守ってる顔をしながらね。……俺？　もちろん例外じゃない。","addEvidence":[{"id":"kai_violation","label":"KAIの規則違反","text":"KAIは停電前後に、本来許可されない運行手続きを行っていた。"}]},
+    {"id":"b03","type":"dialogue","character":"minato","text":"『どうやって停電中に盗んだか』じゃなくていい。最後に本物だと確実に言えるのは、いつだった？　そこから考えよう。"},
+    {"id":"b04","type":"dialogue","character":"rei","text":"封印は完璧だった。なら、列車内でケースを開けた人間はいない。……そこまでは、事実として扱っていい。"},
+    {"id":"b05","type":"choice","title":"いま最も怪しいのは？","text":"前の事件とは立場が違う。同じ3人でも、今回の役割だけを見て選ぶ。","options":[
+      {"id":"sus_rei","label":"REI — 宝石管理の責任者","feedback":"守る立場だからこそ、最初から触れられた可能性がある。"},
+      {"id":"sus_minato","label":"MINATO — 捜査を主導する男","feedback":"彼が推理の方向を誘導している可能性も、理屈の上では残る。"},
+      {"id":"sus_kai","label":"KAI — 規則違反を隠す車掌","feedback":"停電と規則違反は、いかにも事件らしく見える。"}
+    ]},
+    {"id":"b06","type":"narration","eyebrow":"PRE-DEPARTURE RECORD","title":"事件は列車に乗る前に始まっていた","text":"出発直前に撮影された公式記録を拡大すると、宝石の微細なカットが本物と一致しない。写真の時点ですでにレプリカだった。","addEvidence":[{"id":"photo","label":"出発前の公式写真","text":"出発前の写真に写っている宝石は、すでにレプリカの特徴を持つ。"}]},
+    {"id":"b07","type":"reasoning","title":"本当の犯行時間帯は？","text":"封印は列車内で無傷。しかも出発前の写真にすでに偽物が写っている。何を捨てるべき？","options":[
+      {"id":"rb1","label":"停電中に入れ替えられたという前提","correct":true,"feedback":"その通り。停電は『事件が起きた瞬間』ではなく、そう思わせるための目印だった。"},
+      {"id":"rb2","label":"封印が無傷だったという事実","correct":false,"feedback":"封印の連続性は複数人が確認している。そこを捨てる必要はない。"},
+      {"id":"rb3","label":"宝石が偽物だという鑑定結果","correct":false,"feedback":"鑑定は確定している。疑うべきは『いつ入れ替わったか』だ。"}
+    ]},
+    {"id":"b08","type":"dialogue","character":"minato","text":"そう。停電は派手すぎた。誰かが『ここを見ろ』って指を差してたんだ。なら、見るべきはその前だ。"},
+    {"id":"b09","type":"dialogue","character":"rei","text":"本物の内側には、肉眼ではほとんど見えない針状のインクルージョンがある。レプリカにはない。だから見れば分かる。","addEvidence":[{"id":"rei_knowledge","label":"REIの過剰に正確な知識","text":"REIは公開資料にはない、本物固有の内部特徴を即答した。"},{"id":"preaccess","label":"出発前の管理権限","text":"展示ケース封印前に、宝石へ直接アクセスできたのは管理責任者REIだった。"}]},
+    {"id":"b10","type":"narration","eyebrow":"FALSE WINDOW","title":"守る男だけが、最初から触れられた","text":"KAIの規則違反は列車内で起きた。だが偽物は出発前から存在する。MINATOは本当に捜査している。残るのは、封印前のアクセスと本物への私的な知識を持つ人物だ。"},
+    {"id":"b11","type":"accuse","title":"あなたは誰を指名する？","text":"停電ではなく、封印される前の時間に戻って答える。","correct":"rei","wrongFeedback":"その人物の行動は怪しい。だが出発前にすでにレプリカだった事実と、封印前アクセスを説明できない。"},
+    {"id":"b12","type":"end","character":"rei","title":"REI","text":"彼は出発前に本物とレプリカを交換し、停電警報を派手な偽の犯行時刻として利用した。守る側の完璧さそのものが、犯行機会を作っていた。","quote":"……正しい。君は、派手な出来事じゃなく、時間そのものを疑った。"}
+  ]
+}
