@@ -21,6 +21,7 @@ jobs:
       - run: python tools/runtime_v1.py --auto build/realizations/*.json
       - run: python tools/validate_prototype.py
       - run: python tools/validate_blind_concept_build.py
+      - run: python tools/validate_wave1_ops.py
       - run: python tools/prototype_metrics.py
       - run: python tools/analyze_concept_tests.py --self-test
       - run: python tools/generate_wave1_links.py --self-test
