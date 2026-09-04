@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mystery-prince.local/schemas/realization-v1.schema.json",
+  "title": "MYSTERY PRINCE Realization v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "realization_version",
+    "id",
+    "source_experience_id",
+    "title",
+    "premise",
+    "cast",
+    "facts",
+    "initial_known_fact_ids",
+    "actions",
+    "completion_conditions"
+  ],
+  "properties": {
+    "realization_version": {"const": "1"},
+    "id": {"type": "string", "minLength": 1},
+    "source_experience_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "premise": {"type": "string", "minLength": 1},
+    "cast": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["casting_id", "prince_id", "role_label"],
+        "properties": {
+          "casting_id": {"type": "string", "minLength": 1},
+          "prince_id": {"type": "string", "minLength": 1},
+          "role_label": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "text"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "initial_known_fact_ids": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "capability", "label", "targets", "requires_fact_ids", "reveals_fact_ids"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "capability": {"type": "string", "minLength": 1},
+          "label": {"type": "string", "minLength": 1},
+          "targets": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "success_target_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "requires_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "reveals_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "completion_conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description", "required_fact_ids", "required_action_ids"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "required_fact_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "required_action_ids": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    }
+  }
+}
