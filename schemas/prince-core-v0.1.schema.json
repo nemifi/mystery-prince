@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mystery-prince.local/schemas/prince-core-v0.1.schema.json",
+  "title": "MYSTERY PRINCE PRINCE CORE v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "working_name", "core"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "id": {"type": "string", "minLength": 1},
+    "working_name": {"type": "string", "minLength": 1},
+    "core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["appeal_core", "decision_principle", "interpersonal_style", "emotional_pattern", "signature"],
+      "properties": {
+        "appeal_core": {"type": "string", "minLength": 1},
+        "decision_principle": {"type": "string", "minLength": 1},
+        "interpersonal_style": {"type": "string", "minLength": 1},
+        "emotional_pattern": {"type": "string", "minLength": 1},
+        "signature": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "prototype_notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
