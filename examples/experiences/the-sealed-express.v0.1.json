@@ -19,33 +19,9 @@
     "resolution": "The player proves the jewel was already a replica before departure and identifies ALPHA as the person with the access and knowledge required to make the substitution."
   },
   "castings": [
-    {
-      "id": "cast_b_alpha",
-      "prince_id": "prince_alpha",
-      "role": {
-        "label": "Exhibition curator and diplomatic aide",
-        "description": "Responsible for pre-departure preparation and publicly dedicated to order; actually the culprit.",
-        "narrative_function": "protector_culprit"
-      }
-    },
-    {
-      "id": "cast_b_beta",
-      "prince_id": "prince_beta",
-      "role": {
-        "label": "Railway investigator",
-        "description": "Official investigator whose person-centered instinct helps recover testimony other officials discount.",
-        "narrative_function": "human_centered_ally"
-      }
-    },
-    {
-      "id": "cast_b_gamma",
-      "prince_id": "prince_gamma",
-      "role": {
-        "label": "Chief conductor",
-        "description": "Controls train procedure while bending one rule for an unrelated reason, becoming the initial red herring.",
-        "narrative_function": "institutional_red_herring"
-      }
-    }
+    {"id": "cast_b_alpha", "prince_id": "prince_alpha", "role": {"label": "Exhibition curator and diplomatic aide", "description": "Responsible for pre-departure preparation and publicly dedicated to order; actually the culprit.", "narrative_function": "protector_culprit"}},
+    {"id": "cast_b_beta", "prince_id": "prince_beta", "role": {"label": "Railway investigator", "description": "Official investigator whose person-centered instinct helps recover testimony other officials discount.", "narrative_function": "human_centered_ally"}},
+    {"id": "cast_b_gamma", "prince_id": "prince_gamma", "role": {"label": "Chief conductor", "description": "Controls train procedure while bending one rule for an unrelated reason, becoming the initial red herring.", "narrative_function": "institutional_red_herring"}}
   ],
   "facts": [
     {"id": "f_b_01", "proposition": "The display seals remained intact throughout the journey.", "truth_value": "true", "canon": "hard"},
@@ -72,50 +48,18 @@
     {"holder": "cast_b_gamma", "fact_ids": ["f_b_05"]}
   ],
   "opportunities": [
-    {
-      "id": "op_b_01",
-      "capability": "question_character",
-      "targets": ["cast_b_gamma"],
-      "requires_fact_ids": ["f_b_01", "f_b_02"],
-      "reveals_fact_ids": ["f_b_05"],
-      "description": "Expose GAMMA's procedural violation and create the first false solution."
-    },
-    {
-      "id": "op_b_02",
-      "capability": "inspect_information",
-      "targets": ["pre_departure_image"],
-      "requires_fact_ids": ["f_b_02"],
-      "reveals_fact_ids": ["f_b_03"],
-      "description": "Discover that the replica predates the tunnel event."
-    },
-    {
-      "id": "op_b_03",
-      "capability": "form_hypothesis",
-      "targets": ["crime_window"],
-      "requires_fact_ids": ["f_b_01", "f_b_03"],
-      "reveals_fact_ids": ["f_b_04", "f_b_09"],
-      "description": "Reject the tunnel as the true substitution window."
-    },
-    {
-      "id": "op_b_04",
-      "capability": "challenge_claim",
-      "targets": ["cast_b_alpha"],
-      "requires_fact_ids": ["f_b_03", "f_b_06", "f_b_07"],
-      "reveals_fact_ids": ["f_b_08"],
-      "description": "Use pre-departure timing, opportunity, and privileged knowledge to identify ALPHA."
+    {"id": "op_b_01", "capability": "question_character", "targets": ["cast_b_gamma"], "requires_fact_ids": ["f_b_01", "f_b_02"], "reveals_fact_ids": ["f_b_05"], "description": "Expose GAMMA's procedural violation and create the first false solution."},
+    {"id": "op_b_02", "capability": "inspect_information", "targets": ["pre_departure_image"], "requires_fact_ids": ["f_b_02"], "reveals_fact_ids": ["f_b_03"], "description": "Discover that the replica predates the tunnel event."},
+    {"id": "op_b_03", "capability": "form_hypothesis", "targets": ["crime_window"], "requires_fact_ids": ["f_b_01", "f_b_03"], "reveals_fact_ids": ["f_b_04", "f_b_09"], "description": "Reject the tunnel as the true substitution window."},
+    {"id": "op_b_04", "capability": "inspect_information", "targets": ["pre_departure_custody_record"], "requires_fact_ids": ["f_b_03"], "reveals_fact_ids": ["f_b_06"], "description": "Identify who had meaningful access before the display was sealed."},
+    {"id": "op_b_05", "capability": "challenge_claim", "targets": ["cast_b_alpha"], "requires_fact_ids": ["f_b_03", "f_b_06"], "reveals_fact_ids": ["f_b_07"], "description": "Expose ALPHA's privileged knowledge of the authenticated original."},
+    {"id": "op_b_06", "capability": "make_decision", "targets": ["cast_b_alpha", "cast_b_beta", "cast_b_gamma"], "success_target_ids": ["cast_b_alpha"], "requires_fact_ids": ["f_b_03", "f_b_04", "f_b_06", "f_b_07"], "reveals_fact_ids": ["f_b_08"], "description": "Choose who replaced the jewel before departure."
     }
   ],
   "completion_conditions": [
-    {
-      "id": "complete_b_01",
-      "description": "Prove the tunnel was a false crime window and identify ALPHA as the pre-departure culprit.",
-      "required_fact_ids": ["f_b_03", "f_b_04", "f_b_08"]
-    }
+    {"id": "complete_b_01", "description": "Prove the tunnel was a false crime window and correctly accuse ALPHA as the pre-departure culprit.", "required_fact_ids": ["f_b_03", "f_b_04", "f_b_08"], "required_opportunity_ids": ["op_b_06"]}
   ],
-  "capabilities": {
-    "required": ["inspect_information", "question_character", "form_hypothesis", "challenge_claim", "make_decision"],
-    "optional": []
-  },
+  "capabilities": {"required": ["inspect_information", "question_character", "form_hypothesis", "challenge_claim", "make_decision"], "optional": []},
   "adaptation_policy": {
     "locked": ["experience.truth", "experience.player_question", "experience.resolution", "castings.prince_id", "castings.role.narrative_function"],
     "adaptive": ["experience.dramatic_spine pacing", "dialogue wording", "discovery order within fair-play constraints", "hint density"],
