@@ -1,0 +1,61 @@
+{
+  "schema": "generated-inquiry/1",
+  "premise": "閉館後の書庫。封筒を持ち出した人物は、誰の鍵を使ったのか。",
+  "backgroundAsset": "background",
+  "roles": [
+    {
+      "id": "archivist",
+      "label": "書庫管理人",
+      "characterId": "rei",
+      "portraitAsset": "portrait-archivist"
+    },
+    {
+      "id": "restorer",
+      "label": "資料修復士",
+      "characterId": "minato",
+      "portraitAsset": "portrait-restorer"
+    },
+    {
+      "id": "courier",
+      "label": "夜間配達人",
+      "characterId": "kai",
+      "portraitAsset": "portrait-courier"
+    }
+  ],
+  "tokens": [
+    "青い刻印",
+    "銀の刻印",
+    "赤い刻印"
+  ],
+  "questions": [
+    {
+      "id": "witness",
+      "label": "目撃者の証言を聞く",
+      "aliases": [
+        "証言",
+        "目撃",
+        "witness"
+      ]
+    },
+    {
+      "id": "access",
+      "label": "入室記録を調べる",
+      "aliases": [
+        "記録",
+        "入室",
+        "log",
+        "access"
+      ]
+    },
+    {
+      "id": "keys",
+      "label": "鍵の持ち主を確認する",
+      "aliases": [
+        "鍵",
+        "持ち主",
+        "key"
+      ]
+    }
+  ],
+  "opening": "この書庫では、記録と証言が食い違っています。「証言」「記録」「鍵」を質問して調べましょう。疑いは取り消せますが、最後の結論は一度だけです。"
+}

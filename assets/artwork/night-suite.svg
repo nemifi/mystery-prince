@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080">
+  <defs>
+    <linearGradient id="room" x2="0" y2="1"><stop stop-color="#25303c"/><stop offset="1" stop-color="#070e17"/></linearGradient>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#142e46"/><stop offset=".7" stop-color="#3a4255"/><stop offset="1" stop-color="#785546"/></linearGradient>
+    <linearGradient id="curtain"><stop stop-color="#121d2b"/><stop offset=".45" stop-color="#344353"/><stop offset=".7" stop-color="#172435"/><stop offset="1" stop-color="#070e17"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#3c3731"/><stop offset="1" stop-color="#090e17"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#edd6a3" stop-opacity=".5"/><stop offset="1" stop-color="#d19b5c" stop-opacity="0"/></radialGradient>
+    <radialGradient id="shade"><stop offset=".3" stop-color="#020810" stop-opacity="0"/><stop offset="1" stop-color="#020810" stop-opacity=".65"/></radialGradient>
+    <pattern id="lights" width="27" height="37" patternUnits="userSpaceOnUse"><path d="M4 6h7v12H4z" fill="#d9bd82" opacity=".48"/></pattern>
+  </defs>
+  <path fill="url(#room)" d="M0 0h1440v1080H0z"/>
+  <path fill="url(#sky)" stroke="#7d725f" stroke-width="8" d="M210 92h964v665H210z"/>
+  <circle cx="913" cy="225" r="29" fill="#d5d9ce" opacity=".8"/>
+  <g fill="#142032"><path d="M230 511h122v246H230zM375 420h107v337H375zM504 546h130v211H504zM659 455h73v302h-73zM757 516h139v241H757zM920 389h123v368H920zM1070 539h95v218h-95z"/></g>
+  <g fill="url(#lights)"><path d="M238 523h106v234H238zM384 432h89v325h-89zM514 557h110v200H514zM667 466h57v291h-57zM769 529h115v228H769zM930 401h103v356H930zM1079 550h77v207h-77z"/></g>
+  <path stroke="#4e5355" stroke-width="15" d="M530 93v664M852 93v664M210 381h964"/>
+  <path stroke="#a4977a" stroke-width="2" opacity=".6" d="M522 93v664M844 93v664M210 373h964"/>
+  <path fill="url(#curtain)" d="M105 61h170l-20 737-125 40zM1092 61h240l-46 777-144-40z"/>
+  <path fill="url(#floor)" d="M0 852l210-95h964l266 95v228H0z"/>
+  <g stroke="#8f7e66" opacity=".2"><path d="M0 967h1440M0 1048h1440M95 1080l289-323M572 1080l86-323M1126 1080L953 757"/></g>
+  <ellipse cx="265" cy="635" rx="214" ry="287" fill="url(#glow)"/>
+  <path stroke="#97815c" stroke-width="12" d="M265 639v279M207 923h117"/>
+  <path fill="#ddcba3" d="M199 486h132l40 155H161z"/>
+  <path fill="#162434" stroke="#53616a" stroke-width="3" d="M971 666q27-80 135-66l97 20q79 16 62 116l-25 170h-309z"/>
+  <path fill="#213142" stroke="#53616a" stroke-width="3" d="M930 819q150-44 305 12l5 75H931z"/>
+  <path stroke="#574b3d" stroke-width="15" d="M956 906l-10 64M1216 906l12 64"/>
+  <ellipse cx="677" cy="903" rx="128" ry="33" fill="#141d26" stroke="#867454" stroke-width="3"/>
+  <path stroke="#7a6748" stroke-width="8" d="M677 930v99"/>
+  <path fill="#c0b298" transform="rotate(-9 677 900)" d="M629 880h95v33h-95z"/>
+  <path fill="url(#shade)" d="M0 0h1440v1080H0z"/>
+</svg>

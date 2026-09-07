@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:authored-mystery:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "title",
+    "premise",
+    "roles",
+    "rules",
+    "performance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "authored-mystery/1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "premise": {
+      "type": "string",
+      "minLength": 1
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "characterId",
+          "name",
+          "portraitAsset"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "characterId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "portraitAsset": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "start",
+        "truth",
+        "evidence",
+        "inferences",
+        "nodes"
+      ],
+      "properties": {
+        "schema": {
+          "const": "authored-rules/1"
+        },
+        "start": {
+          "type": "string",
+          "minLength": 1
+        },
+        "truth": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "culpritRoleId"
+          ],
+          "properties": {
+            "culpritRoleId": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "observation",
+                  "testimony"
+                ]
+              }
+            }
+          }
+        },
+        "inferences": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "requiresEvidence",
+              "acceptedOptionId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requiresEvidence": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "acceptedOptionId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "nodes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cueId",
+              "grantEvidence",
+              "next",
+              "action"
+            ],
+            "properties": {
+              "cueId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "grantEvidence": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "next": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "action": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "advance",
+                      "choose",
+                      "hypothesize",
+                      "accuse",
+                      "finish"
+                    ]
+                  },
+                  "optionIds": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "inferenceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "requiresEvidence": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "requiresInferences": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "backgroundAsset",
+        "cues",
+        "evidence"
+      ],
+      "properties": {
+        "schema": {
+          "const": "stage-performance/1"
+        },
+        "backgroundAsset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cues": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "opening",
+                  "speech",
+                  "narration",
+                  "question",
+                  "ending"
+                ]
+              },
+              "roleId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "quote": {
+                "type": "string"
+              },
+              "eyebrow": {
+                "type": "string"
+              },
+              "cta": {
+                "type": "string"
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "label"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "wrongResponse": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "text"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

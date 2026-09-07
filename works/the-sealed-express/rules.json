@@ -1,0 +1,306 @@
+{
+  "schema": "authored-rules/1",
+  "start": "beat-00",
+  "truth": {
+    "culpritRoleId": "curator"
+  },
+  "evidence": {
+    "sealed": {
+      "id": "sealed",
+      "kind": "observation"
+    },
+    "replica": {
+      "id": "replica",
+      "kind": "observation"
+    },
+    "conductor-violation": {
+      "id": "conductor-violation",
+      "kind": "observation"
+    },
+    "seal_chain": {
+      "id": "seal_chain",
+      "kind": "observation"
+    },
+    "conductor-reason": {
+      "id": "conductor-reason",
+      "kind": "observation"
+    },
+    "photo": {
+      "id": "photo",
+      "kind": "observation"
+    },
+    "preaccess": {
+      "id": "preaccess",
+      "kind": "observation"
+    },
+    "curator-knowledge": {
+      "id": "curator-knowledge",
+      "kind": "testimony"
+    }
+  },
+  "inferences": {
+    "inference-1": {
+      "id": "inference-1",
+      "requiresEvidence": [
+        "sealed",
+        "replica",
+        "conductor-violation",
+        "seal_chain",
+        "conductor-reason",
+        "photo"
+      ],
+      "acceptedOptionId": "rb1"
+    },
+    "inference-2": {
+      "id": "inference-2",
+      "requiresEvidence": [
+        "sealed",
+        "replica",
+        "conductor-violation",
+        "seal_chain",
+        "conductor-reason",
+        "photo",
+        "preaccess",
+        "curator-knowledge"
+      ],
+      "acceptedOptionId": "rb4"
+    }
+  },
+  "nodes": {
+    "beat-00": {
+      "cueId": "beat-00",
+      "grantEvidence": [],
+      "next": "beat-01",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-01": {
+      "cueId": "beat-01",
+      "grantEvidence": [
+        "sealed",
+        "replica"
+      ],
+      "next": "beat-02",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-02": {
+      "cueId": "beat-02",
+      "grantEvidence": [],
+      "next": "beat-03",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-03": {
+      "cueId": "beat-03",
+      "grantEvidence": [],
+      "next": "beat-04",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-04": {
+      "cueId": "beat-04",
+      "grantEvidence": [
+        "conductor-violation"
+      ],
+      "next": "beat-05",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-05": {
+      "cueId": "beat-05",
+      "grantEvidence": [],
+      "next": "beat-06",
+      "action": {
+        "type": "choose",
+        "optionIds": [
+          "sus-curator",
+          "sus-investigator",
+          "sus-conductor"
+        ]
+      }
+    },
+    "beat-06": {
+      "cueId": "beat-06",
+      "grantEvidence": [
+        "seal_chain"
+      ],
+      "next": "beat-07",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-07": {
+      "cueId": "beat-07",
+      "grantEvidence": [],
+      "next": "beat-08",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-08": {
+      "cueId": "beat-08",
+      "grantEvidence": [
+        "conductor-reason"
+      ],
+      "next": "beat-09",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-09": {
+      "cueId": "beat-09",
+      "grantEvidence": [],
+      "next": "beat-10",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-10": {
+      "cueId": "beat-10",
+      "grantEvidence": [],
+      "next": "beat-11",
+      "action": {
+        "type": "choose",
+        "optionIds": [
+          "q_tunnel",
+          "q_seal",
+          "q_before"
+        ]
+      }
+    },
+    "beat-11": {
+      "cueId": "beat-11",
+      "grantEvidence": [
+        "photo"
+      ],
+      "next": "beat-12",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-12": {
+      "cueId": "beat-12",
+      "grantEvidence": [],
+      "next": "beat-13",
+      "action": {
+        "type": "hypothesize",
+        "optionIds": [
+          "rb1",
+          "rb2",
+          "rb3"
+        ],
+        "inferenceId": "inference-1"
+      }
+    },
+    "beat-13": {
+      "cueId": "beat-13",
+      "grantEvidence": [],
+      "next": "beat-14",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-14": {
+      "cueId": "beat-14",
+      "grantEvidence": [
+        "preaccess"
+      ],
+      "next": "beat-15",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-15": {
+      "cueId": "beat-15",
+      "grantEvidence": [],
+      "next": "beat-16",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-16": {
+      "cueId": "beat-16",
+      "grantEvidence": [],
+      "next": "beat-17",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-17": {
+      "cueId": "beat-17",
+      "grantEvidence": [
+        "curator-knowledge"
+      ],
+      "next": "beat-18",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-18": {
+      "cueId": "beat-18",
+      "grantEvidence": [],
+      "next": "beat-19",
+      "action": {
+        "type": "hypothesize",
+        "optionIds": [
+          "rb4",
+          "rb5",
+          "rb6"
+        ],
+        "inferenceId": "inference-2"
+      }
+    },
+    "beat-19": {
+      "cueId": "beat-19",
+      "grantEvidence": [],
+      "next": "beat-20",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-20": {
+      "cueId": "beat-20",
+      "grantEvidence": [],
+      "next": "beat-21",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-21": {
+      "cueId": "beat-21",
+      "grantEvidence": [],
+      "next": "beat-22",
+      "action": {
+        "type": "accuse",
+        "requiresInferences": [
+          "inference-1",
+          "inference-2"
+        ],
+        "requiresEvidence": [
+          "sealed",
+          "replica",
+          "conductor-violation",
+          "seal_chain",
+          "conductor-reason",
+          "photo",
+          "preaccess",
+          "curator-knowledge"
+        ]
+      }
+    },
+    "beat-22": {
+      "cueId": "beat-22",
+      "grantEvidence": [],
+      "next": null,
+      "action": {
+        "type": "finish"
+      }
+    }
+  }
+}

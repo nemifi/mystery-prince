@@ -1,0 +1,11 @@
+{
+  "schema": "performance-overlay/1",
+  "patches": [
+    {
+      "cueId": "beat-00",
+      "field": "eyebrow",
+      "before": "EPISODE 01",
+      "after": "MYSTERY CASE"
+    }
+  ]
+}

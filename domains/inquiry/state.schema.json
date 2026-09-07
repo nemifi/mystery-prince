@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:inquiry-state:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "instance",
+    "observedTopics",
+    "belief",
+    "turns",
+    "outcome",
+    "feedback"
+  ],
+  "properties": {
+    "schema": {
+      "const": "inquiry-state/1"
+    },
+    "instance": {
+      "type": "object"
+    },
+    "observedTopics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "witness",
+          "access",
+          "keys"
+        ]
+      }
+    },
+    "belief": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "speaker",
+          "text"
+        ],
+        "properties": {
+          "speaker": {
+            "enum": [
+              "player",
+              "host"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "outcome": {
+      "enum": [
+        "open",
+        "resolved",
+        "unresolved"
+      ]
+    },
+    "feedback": {
+      "type": "string"
+    }
+  }
+}

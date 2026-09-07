@@ -1,0 +1,13 @@
+[
+  {
+    "id": "the-sealed-express.stage",
+    "profile": "authored-mystery/1",
+    "performance": "performances/ja.json"
+  },
+  {
+    "id": "the-sealed-express.wave1",
+    "profile": "authored-mystery/1",
+    "performance": "performances/ja.json",
+    "overlay": "research/studies/wave1/b-overlay.json"
+  }
+]

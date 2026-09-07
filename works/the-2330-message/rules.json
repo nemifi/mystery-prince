@@ -1,0 +1,305 @@
+{
+  "schema": "authored-rules/1",
+  "start": "beat-00",
+  "truth": {
+    "culpritRoleId": "physician"
+  },
+  "evidence": {
+    "msg2330": {
+      "id": "msg2330",
+      "kind": "observation"
+    },
+    "death": {
+      "id": "death",
+      "kind": "testimony"
+    },
+    "illusionist-pass": {
+      "id": "illusionist-pass",
+      "kind": "observation"
+    },
+    "curtain": {
+      "id": "curtain",
+      "kind": "observation"
+    },
+    "phone_state": {
+      "id": "phone_state",
+      "kind": "observation"
+    },
+    "security-director-record": {
+      "id": "security-director-record",
+      "kind": "observation"
+    },
+    "scheduled": {
+      "id": "scheduled",
+      "kind": "observation"
+    },
+    "room_detail": {
+      "id": "room_detail",
+      "kind": "observation"
+    },
+    "earlier_photo": {
+      "id": "earlier_photo",
+      "kind": "observation"
+    }
+  },
+  "inferences": {
+    "inference-1": {
+      "id": "inference-1",
+      "requiresEvidence": [
+        "msg2330",
+        "death",
+        "illusionist-pass",
+        "curtain",
+        "phone_state",
+        "security-director-record",
+        "scheduled"
+      ],
+      "acceptedOptionId": "r2"
+    },
+    "inference-2": {
+      "id": "inference-2",
+      "requiresEvidence": [
+        "msg2330",
+        "death",
+        "illusionist-pass",
+        "curtain",
+        "phone_state",
+        "security-director-record",
+        "scheduled",
+        "room_detail",
+        "earlier_photo"
+      ],
+      "acceptedOptionId": "r4"
+    }
+  },
+  "nodes": {
+    "beat-00": {
+      "cueId": "beat-00",
+      "grantEvidence": [],
+      "next": "beat-01",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-01": {
+      "cueId": "beat-01",
+      "grantEvidence": [
+        "msg2330",
+        "death"
+      ],
+      "next": "beat-02",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-02": {
+      "cueId": "beat-02",
+      "grantEvidence": [],
+      "next": "beat-03",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-03": {
+      "cueId": "beat-03",
+      "grantEvidence": [],
+      "next": "beat-04",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-04": {
+      "cueId": "beat-04",
+      "grantEvidence": [
+        "illusionist-pass"
+      ],
+      "next": "beat-05",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-05": {
+      "cueId": "beat-05",
+      "grantEvidence": [],
+      "next": "beat-06",
+      "action": {
+        "type": "choose",
+        "optionIds": [
+          "trust-security-director",
+          "trust-physician",
+          "trust-illusionist"
+        ]
+      }
+    },
+    "beat-06": {
+      "cueId": "beat-06",
+      "grantEvidence": [
+        "curtain",
+        "phone_state"
+      ],
+      "next": "beat-07",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-07": {
+      "cueId": "beat-07",
+      "grantEvidence": [],
+      "next": "beat-08",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-08": {
+      "cueId": "beat-08",
+      "grantEvidence": [
+        "security-director-record"
+      ],
+      "next": "beat-09",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-09": {
+      "cueId": "beat-09",
+      "grantEvidence": [],
+      "next": "beat-10",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-10": {
+      "cueId": "beat-10",
+      "grantEvidence": [],
+      "next": "beat-11",
+      "action": {
+        "type": "choose",
+        "optionIds": [
+          "look_security",
+          "look-illusionist",
+          "look_message"
+        ]
+      }
+    },
+    "beat-11": {
+      "cueId": "beat-11",
+      "grantEvidence": [
+        "scheduled"
+      ],
+      "next": "beat-12",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-12": {
+      "cueId": "beat-12",
+      "grantEvidence": [],
+      "next": "beat-13",
+      "action": {
+        "type": "hypothesize",
+        "optionIds": [
+          "r1",
+          "r2",
+          "r3"
+        ],
+        "inferenceId": "inference-1"
+      }
+    },
+    "beat-13": {
+      "cueId": "beat-13",
+      "grantEvidence": [],
+      "next": "beat-14",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-14": {
+      "cueId": "beat-14",
+      "grantEvidence": [],
+      "next": "beat-15",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-15": {
+      "cueId": "beat-15",
+      "grantEvidence": [
+        "room_detail",
+        "earlier_photo"
+      ],
+      "next": "beat-16",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-16": {
+      "cueId": "beat-16",
+      "grantEvidence": [],
+      "next": "beat-17",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-17": {
+      "cueId": "beat-17",
+      "grantEvidence": [],
+      "next": "beat-18",
+      "action": {
+        "type": "hypothesize",
+        "optionIds": [
+          "r4",
+          "r5",
+          "r6"
+        ],
+        "inferenceId": "inference-2"
+      }
+    },
+    "beat-18": {
+      "cueId": "beat-18",
+      "grantEvidence": [],
+      "next": "beat-19",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-19": {
+      "cueId": "beat-19",
+      "grantEvidence": [],
+      "next": "beat-20",
+      "action": {
+        "type": "advance"
+      }
+    },
+    "beat-20": {
+      "cueId": "beat-20",
+      "grantEvidence": [],
+      "next": "beat-21",
+      "action": {
+        "type": "accuse",
+        "requiresInferences": [
+          "inference-1",
+          "inference-2"
+        ],
+        "requiresEvidence": [
+          "msg2330",
+          "death",
+          "illusionist-pass",
+          "curtain",
+          "phone_state",
+          "security-director-record",
+          "scheduled",
+          "room_detail",
+          "earlier_photo"
+        ]
+      }
+    },
+    "beat-21": {
+      "cueId": "beat-21",
+      "grantEvidence": [],
+      "next": null,
+      "action": {
+        "type": "finish"
+      }
+    }
+  }
+}

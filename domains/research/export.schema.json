@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:research-export:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "studyId",
+    "studyRevision",
+    "participantId",
+    "cohort",
+    "exportedAt",
+    "phase",
+    "blind",
+    "revealed",
+    "sessions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "research-export/1"
+    },
+    "studyId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "studyRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "participantId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_-]{1,32}$"
+    },
+    "cohort": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exportedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phase": {
+      "enum": [
+        "blind",
+        "pause",
+        "revealed",
+        "done"
+      ]
+    },
+    "blind": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "revealed": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "publicationId",
+          "status",
+          "startedAt",
+          "updatedAt",
+          "events"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publicationId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "initializing",
+              "active",
+              "completed",
+              "closed"
+            ]
+          },
+          "startedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "updatedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "at",
+                "revision",
+                "type",
+                "payload"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "payload": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

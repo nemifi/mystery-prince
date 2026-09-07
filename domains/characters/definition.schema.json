@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:character-definition:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "name",
+    "definition",
+    "editorialNotes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "character-definition/1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "appeal_core",
+        "decision_principle",
+        "interpersonal_style",
+        "emotional_pattern",
+        "signature"
+      ],
+      "properties": {
+        "appeal_core": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_principle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "interpersonal_style": {
+          "type": "string",
+          "minLength": 1
+        },
+        "emotional_pattern": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signature": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "editorialNotes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

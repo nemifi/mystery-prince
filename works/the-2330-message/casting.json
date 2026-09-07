@@ -1,0 +1,17 @@
+[
+  {
+    "roleId": "security-director",
+    "characterId": "rei",
+    "portraitAsset": "portrait-security-director"
+  },
+  {
+    "roleId": "physician",
+    "characterId": "minato",
+    "portraitAsset": "portrait-physician"
+  },
+  {
+    "roleId": "illusionist",
+    "characterId": "kai",
+    "portraitAsset": "portrait-illusionist"
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:authored-state:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "nodeId",
+    "evidenceIds",
+    "acceptedInferences",
+    "beliefs",
+    "choices",
+    "visited",
+    "feedback",
+    "finished"
+  ],
+  "properties": {
+    "schema": {
+      "const": "authored-state/1"
+    },
+    "nodeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidenceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "acceptedInferences": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "beliefs": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "accepted",
+          "refuted"
+        ]
+      }
+    },
+    "choices": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "visited": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "feedback": {
+      "type": "string"
+    },
+    "finished": {
+      "type": "boolean"
+    }
+  }
+}

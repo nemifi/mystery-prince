@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:inquiry:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "title",
+    "premise",
+    "backgroundAsset",
+    "roles",
+    "tokens",
+    "questions",
+    "opening"
+  ],
+  "properties": {
+    "schema": {
+      "const": "generated-inquiry/1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "premise": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backgroundAsset": {
+      "type": "string",
+      "minLength": 1
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "characterId",
+          "name",
+          "portraitAsset"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "characterId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "portraitAsset": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "aliases"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "witness",
+              "access",
+              "keys"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "opening": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

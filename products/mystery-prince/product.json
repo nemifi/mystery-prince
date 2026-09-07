@@ -1,0 +1,13 @@
+{
+  "id": "mystery-prince",
+  "title": "MYSTERY PRINCE",
+  "intro": "人物を知るほど、真相が揺らぐ。次の事件へ。",
+  "discoveryEditions": [
+    "the-2330-message.stage",
+    "the-sealed-express.stage",
+    "the-unwritten-alibi.inquiry"
+  ],
+  "studies": [
+    "research/studies/wave1/study.json"
+  ]
+}

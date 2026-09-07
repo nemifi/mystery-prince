@@ -1,112 +1,56 @@
 # Mystery Prince
 
-> A platform for continuously delivering and evolving interactive mystery experiences centered on attractive male characters.
+作品の意味と、実行エンジン・表示・保存・生成サービスを独立して交換する、キャラクターを中心としたインタラクティブ作品基盤です。
 
-This repository is the design and prototype source of truth for **MYSTERY PRINCE / ミステリープリンス**.
+小さな実行基盤の上に、**固定脚本のミステリー**と**プレイごとに事件を生成する対話型ミステリー**を実装しています。両者は別の状態・命令・完了条件を持ち、共通の物語形式を強制しません。
 
-## Current milestone
+旧 Experience Contract、Realization-v1、prototype、セーブ形式からは全面移行済みです。現在の正本は `works/`、`domains/`、`experience-profiles/` 以下です。
 
-**Wave 1 H1/H2 target-user validation.**
+## 実行
 
-The architecture proof and disposable concept-test build are ready. The only remaining operational blocker before external distribution is one-time GitHub Pages enablement for this repository.
+Node.js 22.14以降とPython 3.12以降を使用します。CIの基準はNode.js 24です。Pythonは独立実装との比較検証に使用し、Webの配信・プレイには不要です。
 
-Read in this order:
+```bash
+npm ci
+npm run dev
+```
 
-1. [Current milestone](docs/36-current-milestone.md)
-2. [Wave 1 launch checklist](docs/37-wave-1-launch-checklist.md)
-3. [Wave 1 runbook](docs/35-wave-1-concept-test-runbook.md)
-4. [Pre-committed analysis gates](docs/32-concept-test-analysis-and-gates.md)
-5. [Full design index](docs/README.md)
+`http://127.0.0.1:8000/` を開くと3作品を遊べます。
 
-Prepared Wave 1 operations include:
+| 作品 | 参加の仕組み |
+| --- | --- |
+| THE 23:30 MESSAGE | 証拠を集め、仮説を評価し、犯人を指名する固定脚本 |
+| THE SEALED EXPRESS | 別の役・事件・立ち絵を持つ固定脚本 |
+| THE UNWRITTEN ALIBI | 生成した事件を質問で調べ、疑いを更新し、一度だけ結論する |
 
-- two ~11-minute mystery slices;
-- REI / MINATO / KAI in distinct A/B ROLE visuals;
-- participant-scoped test storage;
-- fixed A→B / B→A counterbalancing;
-- blind debrief before the recurring-character concept is revealed;
-- participant JSON export;
-- analysis CLI;
-- P001–P020 allocation with exact 10 AB / 10 BA split.
+通常版3本に加え、研究用に説明を伏せた版2本をビルドします。対話型作品の生成器はローカルの決定的な実装です。
 
-The prepared participant URLs live in `ops/wave1-participant-links.csv` but **must not be distributed until GitHub Pages deployment and the P000 smoke test pass**.
+```bash
+npm run play -- --list
+npm run play -- --edition the-2330-message.stage
+npm run play -- --edition the-unwritten-alibi.inquiry --seed example
+```
 
-## Platform thesis
+WebはIndexedDB、ターミナルはSQLiteを使用します。同じ公開版の通常プレイは、JSONセーブを書き出して双方へ移せます。
 
-The stable conceptual core is intentionally small:
+## 検証
 
-- **PRINCE** — who is at the center of the attraction;
-- **MYSTERY** — what the user wants to know, solve, expose, or understand;
-- **EXPERIENCE** — how the user participates in that mystery.
+```bash
+npm run verify
+npx playwright install chromium
+npm run test:browser
+```
 
-Key principles:
+契約・誤操作・中断復元・二重確定防止・保存先の交換・別言語エンジンの同等性・再現可能なビルドを検査します。ブラウザーテストは専用ローカルサーバーでPCとスマートフォンの全編、AB/BA、回答、エクスポート、端末間移行を確認します。画像と検証用データは `build/qa/` に出力します。
 
-- **MYSTERY PRINCE is a platform, not one fixed game format.**
-- **PRINCE is a broad brand label, not an in-world royal status.**
-- **PRINCE and ROLE are separate.** The same recurring PRINCE may play radically different professions, eras, moral positions, relationships, or culprit/investigator roles across independent works.
-- **Story continuity is optional.** A persistent fictional biography or shared universe is not a platform invariant.
-- **Each mystery must work as a whole entertainment work first.**
-- **AI is initially an authoring/production tool, not a runtime dependency.**
-- **Content meaning is independent of presentation UI.** Creation and Runtime meet through an evolving Experience Contract.
-- **Future extensibility is preserved through boundaries, not speculative feature implementation.**
+## 設計と運用
 
-The desired posture remains:
+- [構造と依存方向](docs/architecture.md)
+- [契約と交換手順](docs/contracts.md)
+- [作品・配役・演出の制作](docs/authoring.md)
+- [開発と実行](docs/development.md)
+- [Wave 1の運用と分析](docs/research.md)
+- [移行記録](docs/migration-record.md)
+- [過去の企画・設計記録](docs/archive/pre-platform/README.md)
 
-> **Broad platform definition, narrow initial implementation.**
-
-## Architecture
-
-Five conceptual layers:
-
-1. **Brand** — MYSTERY PRINCE, PRINCE, CROWN MASTER ZERO, brand principles
-2. **Content** — EXPERIENCE, MYSTERY, STORY, WORLD, ROLE, CAST
-3. **Platform** — catalog, accounts, distribution, purchases, discovery, versioning
-4. **Runtime** — current and future ways to play/present an EXPERIENCE
-5. **Creation** — human/AI production, asset libraries, validation, authoring tools
-
-Implementation mental model:
-
-> **Whole Work Design → Experience Semantic Model → Validation → Realization Compilation → Runtime Playback**
-
-## Architecture proof
-
-CI currently exercises:
-
-- Experience Contract JSON Schema v0.1;
-- PRINCE CORE JSON Schema v0.1;
-- three prototype PRINCE Cores;
-- two deliberately different MASTER WORKS using the same recurring PRINCES;
-- semantic/reference/reachability validation;
-- deterministic Experience → Realization-v1 compilation;
-- one Runtime-v1 harness for both works;
-- automatic completion of both Realizations;
-- disposable user-facing prototype validation;
-- blind Wave 1 build validation;
-- pacing diagnostics;
-- concept-test analysis self-tests;
-- balanced participant-link generation self-tests.
-
-## What is intentionally unresolved
-
-Do not prematurely settle these before Wave 1 evidence:
-
-- final commercial game UI;
-- monetization / gacha / collection;
-- daily retention systems;
-- runtime generative AI;
-- large-scale content generation;
-- long-term character relationship systems;
-- final launch character names/designs;
-- CROWN MASTER ZERO's final presentation.
-
-The next product decision should come from target-user behavior, blind comments, and test data—not more speculative architecture.
-
-## Working brand persona
-
-**CROWN MASTER ZERO / クラウンマスター・ゼロ** remains the working IP-level host/persona designation. It belongs to the brand layer rather than any individual mystery continuity and is not yet immutable naming.
-
-## Status vocabulary
-
-- **DECIDED** — current design principle; change deliberately.
-- **WORKING** — current best direction; expected to evolve.
-- **OPEN** — intentionally unresolved.
+配信成果物は `dist/site/` のみです。GitHub Pagesもこの成果物を配信します。機械検証、人による作品評価、公開環境の確認は別の記録として扱います。

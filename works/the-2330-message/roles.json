@@ -1,0 +1,14 @@
+[
+  {
+    "id": "security-director",
+    "label": "ホテル警備責任者"
+  },
+  {
+    "id": "physician",
+    "label": "被害者の主治医"
+  },
+  {
+    "id": "illusionist",
+    "label": "招待イリュージョニスト"
+  }
+]

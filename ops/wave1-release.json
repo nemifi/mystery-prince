@@ -1,0 +1,9 @@
+{
+  "schema": "study-release/1",
+  "studyId": "wave1",
+  "studyRevision": "d4a126d6fefcdf54eb778a659441243231220d388c833a9f62781651eca8783f",
+  "publications": {
+    "the-2330-message.wave1": "pub_5d6f297b1ba0a7ad5552cf0a63999114f18ca633d2d79834bcb7f81d1dcafa38",
+    "the-sealed-express.wave1": "pub_3795bad95d9e654e9eeff72b564379b1ff4856e0cce390d7f1d0f3a47c95de55"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:authored-command:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "expectedRevision",
+    "type",
+    "payload"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expectedRevision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "type": {
+      "enum": [
+        "advance",
+        "choose",
+        "hypothesize",
+        "accuse",
+        "finish"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "optionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "roleId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

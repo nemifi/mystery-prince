@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mp:inquiry-instance:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "culpritRoleId",
+    "allegationRoleId",
+    "accessToken",
+    "keys"
+  ],
+  "properties": {
+    "schema": {
+      "const": "inquiry-instance/1"
+    },
+    "culpritRoleId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allegationRoleId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accessToken": {
+      "type": "string",
+      "minLength": 1
+    },
+    "keys": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "roleId",
+          "token"
+        ],
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "token": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

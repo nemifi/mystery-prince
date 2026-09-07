@@ -1,0 +1,28 @@
+{
+  "schema": "work-intent/1",
+  "id": "the-sealed-express",
+  "title": "THE SEALED EXPRESS",
+  "summary": "夜行豪華列車。トンネル停電の直後、封印展示された宝石が偽物だと判明する。だが封印は一度も破られていない。",
+  "question": "How was the jewel replaced without opening the display during the journey, and why was the tunnel blackout made to look like the critical moment?",
+  "dramaticIntent": [
+    "A blackout and alarm create an apparent impossible theft window.",
+    "GAMMA appears suspicious because he controls train procedure and is evasive.",
+    "A real procedural violation strengthens the false solution.",
+    "That secret cannot explain evidence that predates the journey.",
+    "BETA helps reframe the question from how the case was opened to when the real jewel last certainly existed.",
+    "A pre-departure record proves the replica was already present.",
+    "ALPHA's precision becomes evidence of privileged pre-departure access and knowledge.",
+    "The player accuses the man whose ROLE was built around protecting the jewel."
+  ],
+  "mechanicalObligations": [
+    "Evidence precedes inference acceptance",
+    "Both inferences precede supported accusation",
+    "Only an explicit finish command completes a play"
+  ],
+  "editorialObligations": [
+    "Cross-ROLE identity remains recognizable",
+    "Affection changes the experience of suspicion",
+    "Evidence and accusation remain fair"
+  ],
+  "reviewStatus": "requires-human-playtest-after-migration"
+}

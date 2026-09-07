@@ -1,0 +1,17 @@
+[
+  {
+    "roleId": "curator",
+    "characterId": "rei",
+    "portraitAsset": "portrait-curator"
+  },
+  {
+    "roleId": "investigator",
+    "characterId": "minato",
+    "portraitAsset": "portrait-investigator"
+  },
+  {
+    "roleId": "conductor",
+    "characterId": "kai",
+    "portraitAsset": "portrait-conductor"
+  }
+]

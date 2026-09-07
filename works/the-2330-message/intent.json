@@ -1,0 +1,28 @@
+{
+  "schema": "work-intent/1",
+  "id": "the-2330-message",
+  "title": "THE 23:30 MESSAGE",
+  "summary": "高級ホテルの立入制限フロアで男性が死亡した。だが死亡後のはずの23:30、彼自身の声によるメッセージが届く。",
+  "question": "How could the victim send the 23:30 message if he was already dead, and who is using that contradiction to hide the true timeline?",
+  "dramaticIntent": [
+    "The dead man apparently speaks at 23:30.",
+    "ALPHA appears suspicious because he controls the records.",
+    "ALPHA is exposed as having altered a record, creating a false solution.",
+    "ALPHA's secret explains the alteration but not the death.",
+    "GAMMA's illicit access creates another plausible but incomplete route.",
+    "The player realizes delivery time is not recording time.",
+    "BETA's knowledge contradicts his stated timeline.",
+    "The player must accuse the person positioned as the safest ally."
+  ],
+  "mechanicalObligations": [
+    "Evidence precedes inference acceptance",
+    "Both inferences precede supported accusation",
+    "Only an explicit finish command completes a play"
+  ],
+  "editorialObligations": [
+    "Cross-ROLE identity remains recognizable",
+    "Affection changes the experience of suspicion",
+    "Evidence and accusation remain fair"
+  ],
+  "reviewStatus": "requires-human-playtest-after-migration"
+}

@@ -1,0 +1,18 @@
+{
+  "background": {
+    "source": "assets/artwork/sealed-express.svg",
+    "alt": "夜行豪華列車。トンネル停電の直後、封印展示された宝石が偽物だと判明する。だが封印は一度も破られていない。"
+  },
+  "portrait-curator": {
+    "source": "assets/artwork/rei-b.jpg",
+    "alt": "REI — 美術展学芸員・外交補佐"
+  },
+  "portrait-investigator": {
+    "source": "assets/artwork/minato-b.jpg",
+    "alt": "MINATO — 鉄道捜査官"
+  },
+  "portrait-conductor": {
+    "source": "assets/artwork/kai-b.jpg",
+    "alt": "KAI — 主任車掌"
+  }
+}

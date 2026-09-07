@@ -1,0 +1,18 @@
+{
+  "background": {
+    "source": "assets/artwork/night-suite.svg",
+    "alt": "閉館後の書庫"
+  },
+  "portrait-archivist": {
+    "source": "assets/artwork/rei.jpg",
+    "alt": "REI — 書庫管理人"
+  },
+  "portrait-restorer": {
+    "source": "assets/artwork/minato-b.jpg",
+    "alt": "MINATO — 資料修復士"
+  },
+  "portrait-courier": {
+    "source": "assets/artwork/kai-a.jpg",
+    "alt": "KAI — 夜間配達人"
+  }
+}

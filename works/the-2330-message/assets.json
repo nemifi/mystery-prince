@@ -1,0 +1,18 @@
+{
+  "background": {
+    "source": "assets/artwork/night-suite.svg",
+    "alt": "高級ホテルの立入制限フロアで男性が死亡した。だが死亡後のはずの23:30、彼自身の声によるメッセージが届く。"
+  },
+  "portrait-security-director": {
+    "source": "assets/artwork/rei-a.jpg",
+    "alt": "REI — ホテル警備責任者"
+  },
+  "portrait-physician": {
+    "source": "assets/artwork/minato-a.jpg",
+    "alt": "MINATO — 被害者の主治医"
+  },
+  "portrait-illusionist": {
+    "source": "assets/artwork/kai-a.jpg",
+    "alt": "KAI — 招待イリュージョニスト"
+  }
+}

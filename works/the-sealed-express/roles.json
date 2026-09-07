@@ -1,0 +1,14 @@
+[
+  {
+    "id": "curator",
+    "label": "美術展学芸員・外交補佐"
+  },
+  {
+    "id": "investigator",
+    "label": "鉄道捜査官"
+  },
+  {
+    "id": "conductor",
+    "label": "主任車掌"
+  }
+]

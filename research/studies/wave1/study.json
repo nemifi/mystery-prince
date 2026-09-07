@@ -1,0 +1,176 @@
+{
+  "schema": "study-source/1",
+  "id": "wave1",
+  "title": "2つの事件を遊んだあとで",
+  "intro": "短いミステリーを2つ、表示された順にプレイしてください。",
+  "revealText": "この企画では、REI / MINATO / KAIという同じ3人を、作品ごとに別の人生・役として登場させる設計です。",
+  "editions": [
+    "the-2330-message.wave1",
+    "the-sealed-express.wave1"
+  ],
+  "cohorts": {
+    "AB": [
+      "the-2330-message.wave1",
+      "the-sealed-express.wave1"
+    ],
+    "BA": [
+      "the-sealed-express.wave1",
+      "the-2330-message.wave1"
+    ]
+  },
+  "blind": [
+    {
+      "id": "observation",
+      "label": "2つの事件の登場人物について、気づいたこと・印象に残ったこと",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "favorite_case",
+      "label": "どちらの事件を、ミステリーとしてより面白いと感じた？",
+      "type": "choice",
+      "required": true,
+      "options": [
+        {
+          "value": "a",
+          "label": "THE 23:30 MESSAGE"
+        },
+        {
+          "value": "b",
+          "label": "THE SEALED EXPRESS"
+        },
+        {
+          "value": "equal",
+          "label": "同程度"
+        }
+      ]
+    },
+    {
+      "id": "next_prince_blind",
+      "label": "次の事件でもっと見たい人物",
+      "type": "choice",
+      "required": true,
+      "options": [
+        {
+          "value": "rei",
+          "label": "REI"
+        },
+        {
+          "value": "minato",
+          "label": "MINATO"
+        },
+        {
+          "value": "kai",
+          "label": "KAI"
+        },
+        {
+          "value": "none",
+          "label": "特になし"
+        }
+      ]
+    }
+  ],
+  "revealed": [
+    {
+      "id": "identity_rei",
+      "label": "REIは、役が変わっても同じ人物だと感じた",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "identity_minato",
+      "label": "MINATOは、役が変わっても同じ人物だと感じた",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "identity_kai",
+      "label": "KAIは、役が変わっても同じ人物だと感じた",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "recast",
+      "label": "同じ人物が別の役で再登場すること自体が楽しみ",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "emotion_reasoning",
+      "label": "キャラクターへの感情が、誰を疑うか・信じるかに影響した",
+      "type": "choice",
+      "required": true,
+      "options": [
+        {
+          "value": "yes",
+          "label": "はい"
+        },
+        {
+          "value": "no",
+          "label": "いいえ"
+        },
+        {
+          "value": "unsure",
+          "label": "わからない"
+        }
+      ]
+    },
+    {
+      "id": "character_mystery_synergy",
+      "label": "キャラクターがいることで、ミステリー自体が面白くなった",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "mystery_a",
+      "label": "THE 23:30 MESSAGEをミステリーとして評価",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "mystery_b",
+      "label": "THE SEALED EXPRESSをミステリーとして評価",
+      "type": "scale",
+      "required": true
+    },
+    {
+      "id": "next_prince",
+      "label": "次の事件でもっと見たい人物",
+      "type": "choice",
+      "required": true,
+      "options": [
+        {
+          "value": "rei",
+          "label": "REI"
+        },
+        {
+          "value": "minato",
+          "label": "MINATO"
+        },
+        {
+          "value": "kai",
+          "label": "KAI"
+        },
+        {
+          "value": "none",
+          "label": "特になし"
+        }
+      ]
+    },
+    {
+      "id": "next_role",
+      "label": "次はこの人物をこんな役で見たい、という希望",
+      "type": "text",
+      "required": false
+    }
+  ],
+  "metrics": [
+    "identity_rei",
+    "identity_minato",
+    "identity_kai",
+    "recast",
+    "character_mystery_synergy",
+    "mystery_a",
+    "mystery_b"
+  ]
+}
